@@ -32,7 +32,7 @@ const questions = [
   {
     "id": 3,
     "type": "hotspot_dropdown",
-    "img": "/src/data/imgs/q3.png",
+    "img": "/imgs/q3.png",
     "_img_comment": "placeholder; likely required (confusion matrix graphic)",
     "prompt": "Use the drop-down menus to select the answer choice that completes each statement based on the information presented in the graphic.",
     "items": [
@@ -521,7 +521,7 @@ const questions = [
   {
     "id": 28,
     "type": "multiple_choice",
-    "img": "/src/data/imgs/q28.png",
+    "img": "/imgs/q28.png",
     "_img_comment": "placeholder; likely required (chart/graphic)",
     "question": "Which type of model is the chart used to evaluate?",
     "choices": {
@@ -730,7 +730,7 @@ const questions = [
   {
     "id": 41,
     "type": "hotspot_dropdown",
-    "img": "/src/data/imgs/q41.png",
+    "img": "/imgs/q41.png",
     "_img_comment": "placeholder; likely required (dataset table shown)",
     "prompt": "You have the following dataset. What are Household Income and House Price Category? To answer, select the appropriate option in the answer area.",
     "items": [
@@ -834,7 +834,7 @@ const questions = [
   {
     "id": 47,
     "type": "multiple_choice_multi_select",
-    "img": "/src/data/imgs/q47.png",
+    "img": "/imgs/q47.png",
     "_img_comment": "placeholder; likely required (dataset table shown)",
     "question": "You need to predict the income range of a given customer by using the following dataset. Which two fields should you use as features? Each correct answer presents a complete solution.",
     "choices": {
@@ -940,7 +940,7 @@ const questions = [
   {
     "id": 53,
     "type": "drag_and_drop",
-    "img": "/src/data/imgs/q53.png",
+    "img": "/imgs/q53.png",
     "_img_comment": "placeholder; likely required (designer canvas shown)",
     "prompt": "You need to use Azure Machine Learning designer to build a model that will predict automobile prices. Which type of modules should you use to complete the model?",
     "choices_pool": [
@@ -1131,7 +1131,7 @@ const questions = [
   {
     "id": 64,
     "type": "hotspot_yes_no",
-    "img": "/src/data/imgs/q64.png",
+    "img": "/imgs/q64.png",
     "_img_comment": "placeholder; likely required (dataset/table shown)",
     "prompt": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
     "statements": [
@@ -1508,7 +1508,7 @@ const questions = [
   {
     "id": 84,
     "type": "multiple_choice",
-    "img": "/src/data/imgs/q84.png",
+    "img": "/imgs/q84.png",
     "_img_comment": "placeholder; image exhibit likely required (annotated image)",
     "question": "You send an image to a Computer Vision API and receive back the annotated image shown in the exhibit (orange: 96.77%, banana: 97.90%, apple: 98.21%). Which type of computer vision was used?",
     "choices": {
@@ -1822,7 +1822,7 @@ const questions = [
   {
     "id": 103,
     "type": "drag_and_drop",
-    "img": "/src/data/imgs/q103.png",
+    "img": "/imgs/q103.png",
     "_img_comment": "placeholder; likely required (drag/drop UI)",
     "prompt": "Match the tasks to the appropriate scenarios.",
     "choices_pool": [
@@ -2029,7 +2029,7 @@ const questions = [
   {
     "id": 115,
     "type": "multiple_choice",
-    "img": "/src/data/imgs/q115.png",
+    "img": "/imgs/q115.png",
     "_img_comment": "placeholder; likely requires exhibit/output text",
     "question": "You use natural language processing to process text from a Microsoft news story and receive labeled output (e.g., PersonType, Organization, Location, DateTime). Which type of natural language processing was performed?",
     "choices": {
@@ -2366,7 +2366,7 @@ const questions = [
   {
     "id": 135,
     "type": "multiple_choice",
-    "img": "/src/data/imgs/q135.png",
+    "img": "/imgs/q135.png",
     "_img_comment": "placeholder; diagram/exhibit likely required",
     "question": "You have the process shown in the exhibit (chat bot request/response using a Knowledge Base). Which type of AI solution is shown in the diagram?",
     "choices": {
