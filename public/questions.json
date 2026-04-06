@@ -1,0 +1,207 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "type": "multiple_choice",
+      "question": "Which business benefit should the company expect as a result of creating the webchat bot solution?",
+      "choices": {
+        "A": "increased sales",
+        "B": "a reduced workload for the customer service agents",
+        "C": "improved product reliability"
+      },
+      "answer": "B"
+    },
+    {
+      "id": 2,
+      "type": "multiple_choice",
+      "question": "For a machine learning progress, how should you split data for training and evaluation?",
+      "choices": {
+        "A": "Use features for training and labels for evaluation.",
+        "B": "Randomly split the data into rows for training and rows for evaluation.",
+        "C": "Use labels for training and features for evaluation.",
+        "D": "Randomly split the data into columns for training and columns for evaluation."
+      },
+      "answer": "B"
+    },
+    {
+      "id": 3,
+      "type": "hotspot_dropdown",
+      "prompt": "Use the drop-down menus to select the answer choice that completes each statement based on the information presented in the graphic.",
+      "items": [
+        {
+          "text": "There are [answer choice] correctly predicted positives.",
+          "options": ["4", "5", "11", "1,033", "13,951"],
+          "answer": "11"
+        },
+        {
+          "text": "There are [answer choice] false negatives.",
+          "options": ["5", "11", "1,033", "13,951"],
+          "answer": "1,033"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "type": "multiple_choice",
+      "question": "You need to ensure that the model meets the Microsoft transparency principle for responsible AI. What should you do?",
+      "choices": {
+        "A": "Set Validation type to Auto.",
+        "B": "Enable Explain best model.",
+        "C": "Set Primary metric to accuracy.",
+        "D": "Set Max concurrent iterations to O."
+      },
+      "answer": "B"
+    },
+    {
+      "id": 5,
+      "type": "hotspot_yes_no",
+      "prompt": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+      "statements": [
+        {
+          "text": "Forecasting housing prices based on historical data is an example of anomaly detection.",
+          "answer": "No"
+        },
+        {
+          "text": "Identifying suspicious sign-ins by looking for deviations from usual patterns is an example of anomaly detection.",
+          "answer": "Yes"
+        },
+        {
+          "text": "Predicting whether a patient will develop diabetes based on the patient's medical history is an example of anomaly detection.",
+          "answer": "No"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "type": "hotspot_single_select",
+      "prompt": "To complete the sentence, select the appropriate option in the answer area.",
+      "sentence": "The handling of unusual or missing values provided to an AI system is a consideration for the Microsoft principle for responsible AI.",
+      "options": ["inclusiveness", "privacy and security", "reliability and safety", "transparency"],
+      "answer": "reliability and safety"
+    },
+    {
+      "id": 7,
+      "type": "drag_and_drop",
+      "prompt": "Match the types of AI workloads to the appropriate scenarios.",
+      "choices_pool": ["Anomaly detection", "Computer vision", "Conversational AI", "Knowledge mining", "Natural language processing"],
+      "targets": [
+        {
+          "text": "An automated chat to answer questions about refunds and exchange",
+          "answer": "Conversational AI"
+        },
+        {
+          "text": "Determining whether a photo contains a person",
+          "answer": "Computer vision"
+        },
+        {
+          "text": "Determining whether a review is positive or negative",
+          "answer": "Natural language processing"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "type": "multiple_choice",
+      "question": "You are designing an AI system that empowers everyone, including people who have hearing, visual, and other impairments. This is an example of which Microsoft guiding principle for responsible AI?",
+      "choices": {
+        "A": "fairness",
+        "B": "inclusiveness",
+        "C": "reliability and safety",
+        "D": "accountability"
+      },
+      "answer": "B"
+    },
+    {
+      "id": 9,
+      "type": "drag_and_drop",
+      "prompt": "Match the Microsoft guiding principles of responsible AI to the appropriate descriptions.",
+      "choices_pool": ["Accountability", "Fairness", "Inclusiveness", "Privacy and security", "Reliability and safety"],
+      "targets": [
+        {
+          "text": "Ensure that AI systems operate as they were originally designed, respond to unanticipated conditions, and resist harmful manipulation.",
+          "answer": "Reliability and safety"
+        },
+        {
+          "text": "Implementing processes to ensure that decisions made by AI systems can be overridden by humans.",
+          "answer": "Accountability"
+        },
+        {
+          "text": "Provide consumers with information and controls over the collection, use, and storage of their data.",
+          "answer": "Privacy and security"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "type": "hotspot_single_select",
+      "prompt": "To complete the sentence, select the appropriate option in the answer area.",
+      "sentence": "When developing an AI system for self-driving cars, the Microsoft principle for responsible AI should be applied to ensure consistent operation of the system during unexpected circumstances.",
+      "options": ["inclusiveness", "accountability", "reliability and safety", "fairness"],
+      "answer": "reliability and safety"
+    },
+    {
+      "id": 11,
+      "type": "multiple_choice",
+      "question": "Which task should you include to ensure that the service meets the Microsoft transparency principle for responsible AI?",
+      "choices": {
+        "A": "Ensure that all visuals have an associated text that can be read by a screen reader.",
+        "B": "Enable autoscaling to ensure that a service scales based on demand.",
+        "C": "Provide documentation to help developers debug code.",
+        "D": "Ensure that a training dataset is representative of the population."
+      },
+      "answer": "C"
+    },
+    {
+      "id": 12,
+      "type": "drag_and_drop",
+      "prompt": "Match the types of AI workloads to the appropriate scenarios.",
+      "choices_pool": ["Anomaly detection", "Computer vision", "Machine Learning (Regression)", "Natural language processing"],
+      "targets": [
+        {
+          "text": "Identify handwritten letters.",
+          "answer": "Computer vision"
+        },
+        {
+          "text": "Predict the sentiment of a social media post.",
+          "answer": "Natural language processing"
+        },
+        {
+          "text": "Identify a fraudulent credit card payment.",
+          "answer": "Anomaly detection"
+        },
+        {
+          "text": "Predict next month's toy sales.",
+          "answer": "Machine Learning (Regression)"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "type": "hotspot_single_select",
+      "prompt": "Select the answer that correctly completes the sentence.",
+      "sentence": "[BLANK] is used to extract dates, quantities, and locations from text.",
+      "options": ["Key phrase extraction", "Language detection", "Named Entity Recognition (NER)", "Sentiment Analysis"],
+      "answer": "Named Entity Recognition (NER)"
+    },
+    {
+      "id": 14,
+      "type": "multiple_choice",
+      "question": "Which Computer Vision feature can you use to generate automatic captions for digital photographs?",
+      "choices": {
+        "A": "Detect objects.",
+        "B": "Identify landmarks.",
+        "C": "Read text.",
+        "D": "Describe the images."
+      },
+      "answer": "D"
+    },
+    {
+      "id": 15,
+      "type": "hotspot_single_select",
+      "prompt": "To complete the sentence, select the appropriate option in the answer area.",
+      "sentence": "Returning a bounding box that indicates the location of a vehicle in an image is an example of [BLANK].",
+      "options": ["image classification.", "object detection.", "optical character recognizer (OCR).", "semantic segmentation."],
+      "answer": "object detection."
+    }
+  ]
+}
