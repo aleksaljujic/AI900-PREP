@@ -1,17 +1,15 @@
 import { useState, useMemo } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import useQuestionsBySet from '../hooks/useQuestionsBySet';
+import useSynteticQuestions from '../hooks/useSynteticQuestions';
 import QuestionRenderer from '../components/questions/QuestionRenderer';
 import ExamResultsScreen from '../components/ExamResultsScreen';
 import QuestionNavigator from '../components/QuestionNavigator';
 import { isCorrectAnswer, formatAnswerDisplay, getCorrectAnswer } from '../utils/questionUtils';
 
-export default function PracticeMode() {
+export default function SynteticMode() {
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  const set = searchParams.get('set') || 'standard';
-  const { questions, loading, error } = useQuestionsBySet(set);
+  const { questions, loading, error } = useSynteticQuestions();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState({});
   const [feedback, setFeedback] = useState(false);

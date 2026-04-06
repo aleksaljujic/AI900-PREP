@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { questions } from '../data/questions';
+import questions from '../data/questions/questions';
 import DomainFilter from '../components/DomainFilter';
 import QuestionNavigator from '../components/QuestionNavigator';
 import QuizQuestion from '../components/QuizQuestion';

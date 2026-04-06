@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import useQuestions from '../hooks/useQuestions';
+import useQuestionsBySet from '../hooks/useQuestionsBySet';
 import useExamTimer from '../hooks/useExamTimer';
 import QuestionRenderer from '../components/questions/QuestionRenderer';
 import QuestionNavigator from '../components/QuestionNavigator';
@@ -10,7 +10,9 @@ import { isCorrectAnswer } from '../utils/questionUtils';
 
 export default function ExamMode() {
   const navigate = useNavigate();
-  const { questions: allQuestions, loading, error } = useQuestions();
+  const [searchParams] = useSearchParams();
+  const set = searchParams.get('set') || 'standard';
+  const { questions: allQuestions, loading, error } = useQuestionsBySet(set);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState({});
   const [submitted, setSubmitted] = useState(false);

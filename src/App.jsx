@@ -9,6 +9,7 @@ import ResponsibleAI from './pages/ResponsibleAI';
 import QuizModeSelection from './pages/QuizModeSelection';
 import PracticeMode from './pages/PracticeMode';
 import ExamMode from './pages/ExamMode';
+import SynteticMode from './pages/SynteticMode';
 
 const pageVariants = {
   initial: { opacity: 0, y: 24 },
@@ -41,6 +42,7 @@ export default function App() {
               <Route path="/quiz" element={<QuizModeSelection />} />
               <Route path="/quiz/practice" element={<PracticeMode />} />
               <Route path="/quiz/exam" element={<ExamMode />} />
+              <Route path="/quiz/syntetic" element={<SynteticMode />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </motion.div>

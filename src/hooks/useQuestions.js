@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import questionsData from '../data/questions';
+import questionsData from '../data/questions/questions';
 
 export default function useQuestions() {
   const [questions, setQuestions] = useState([]);
