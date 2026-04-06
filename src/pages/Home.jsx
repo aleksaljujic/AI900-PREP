@@ -46,12 +46,12 @@ export default function Home() {
             >
               Start studying
             </Link>
-            <Link
+            {/* <Link
               to="/flashcards"
               className="rounded-3xl border border-slate-200 bg-white px-5 py-4 text-center text-sm font-semibold text-slate-900 transition hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800"
             >
               Review flashcards
-            </Link>
+            </Link> */}
             <Link
               to="/quiz"
               className="rounded-3xl border border-slate-200 bg-white px-5 py-4 text-center text-sm font-semibold text-slate-900 transition hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800"

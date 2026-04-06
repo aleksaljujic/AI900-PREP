@@ -1,6 +1,6 @@
-import { domains } from '../data/topics';
+import { domains as defaultDomains } from '../data/topics';
 
-export default function DomainFilter({ active, onChange }) {
+export default function DomainFilter({ active, onChange, domains = defaultDomains }) {
   return (
     <div className="grid gap-3 sm:grid-cols-5">
       <button

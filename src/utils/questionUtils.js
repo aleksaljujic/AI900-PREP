@@ -6,6 +6,16 @@ export function isCorrectAnswer(question, answer) {
     return question.statements.every((statement, idx) => answer[idx] === statement.answer);
   }
 
+  if (question.type === 'hotspot_dropdown') {
+    if (!Array.isArray(question.items) || typeof answer !== 'object' || Array.isArray(answer)) return false;
+    return question.items.every((item, idx) => answer[idx] === item.answer);
+  }
+
+  if (question.type === 'drag_and_drop') {
+    if (!Array.isArray(question.targets) || typeof answer !== 'object' || Array.isArray(answer)) return false;
+    return question.targets.every((target, idx) => answer[idx] === target.answer);
+  }
+
   const correctAnswer = question.type === 'drag_and_drop_order' ? question.answer_order : question.answer;
 
   if (question.type === 'multiple_choice_multi_select') {
@@ -68,6 +78,24 @@ export function formatAnswerDisplay(question, answer) {
       .join('; ');
   }
 
+  if (question.type === 'hotspot_dropdown' && typeof answer === 'object' && !Array.isArray(answer)) {
+    if (!Array.isArray(question.items)) {
+      return formatAnswer(answer);
+    }
+    return question.items
+      .map((item, idx) => `${idx + 1}: ${answer[idx] ?? 'No answer'}`)
+      .join('; ');
+  }
+
+  if (question.type === 'drag_and_drop' && typeof answer === 'object' && !Array.isArray(answer)) {
+    if (!Array.isArray(question.targets)) {
+      return formatAnswer(answer);
+    }
+    return question.targets
+      .map((target, idx) => `${idx + 1}: ${answer[idx] ?? 'No answer'}`)
+      .join('; ');
+  }
+
   if (question.choices) {
     return formatChoiceLabel(answer, question.choices);
   }
@@ -83,6 +111,18 @@ export function getCorrectAnswer(question) {
   if (question.type === 'hotspot_yes_no') {
     return question.statements.reduce((acc, statement, idx) => {
       acc[idx] = statement.answer;
+      return acc;
+    }, {});
+  }
+  if (question.type === 'hotspot_dropdown') {
+    return question.items.reduce((acc, item, idx) => {
+      acc[idx] = item.answer;
+      return acc;
+    }, {});
+  }
+  if (question.type === 'drag_and_drop') {
+    return question.targets.reduce((acc, target, idx) => {
+      acc[idx] = target.answer;
       return acc;
     }, {});
   }

@@ -3,7 +3,7 @@
   "questions": [
     {
       "id": 1,
-      "type": "multiple_choice",
+      "type": "v",
       "img": null,
       "_img_comment": "placeholder; set to e.g. 'q1.png' or URL if this question needs an image",
       "question": "Which business benefit should the company expect as a result of creating the webchat bot solution?",

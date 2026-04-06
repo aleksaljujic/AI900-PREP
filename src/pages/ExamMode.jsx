@@ -133,7 +133,7 @@ export default function ExamMode() {
         </div>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-[1fr_200px]">
+      <div className="grid gap-6 lg:grid-cols-[1fr_280px]">
         <motion.div key={currentIndex} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="card-base">
           <QuestionRenderer
             question={question}

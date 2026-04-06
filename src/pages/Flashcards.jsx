@@ -1,18 +1,20 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { flashcards } from '../data/flashcards';
+// import { flashcards } from '../data/flashcards';
+import useQuestions from '../hooks/useQuestions';
 import DomainFilter from '../components/DomainFilter';
 import FlashCard from '../components/FlashCard';
+import CardNavigator from '../components/CardNavigator';
 
+// Commented out original flashcards implementation
+
+// New implementation based on questions
 export default function Flashcards() {
-  const [activeDomain, setActiveDomain] = useState('all');
+  const { questions, loading, error } = useQuestions();
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
 
-  const visibleCards = useMemo(() => {
-    return activeDomain === 'all' ? flashcards : flashcards.filter((card) => card.domain === activeDomain);
-  }, [activeDomain]);
-
+  const visibleCards = questions;
   const card = visibleCards[index] || visibleCards[0];
 
   const handleNext = () => {
@@ -25,11 +27,29 @@ export default function Flashcards() {
     setIndex((current) => (current - 1 + visibleCards.length) % visibleCards.length);
   };
 
-  const handleDomainChange = (domain) => {
-    setActiveDomain(domain);
-    setIndex(0);
-    setFlipped(false);
-  };
+  if (loading) {
+    return (
+      <section className="card-base text-center">
+        <p className="text-slate-600 dark:text-slate-300">Loading flashcards...</p>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="card-base bg-rose-50 text-rose-900 dark:bg-rose-900/20 dark:text-rose-200">
+        <p>Error: {error}</p>
+      </section>
+    );
+  }
+
+  if (questions.length === 0) {
+    return (
+      <section className="card-base text-center">
+        <p className="text-slate-600 dark:text-slate-300">No flashcards available</p>
+      </section>
+    );
+  }
 
   return (
     <section className="space-y-10 pb-10">
@@ -37,35 +57,44 @@ export default function Flashcards() {
         <span className="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-600 dark:bg-slate-800 dark:text-slate-300">
           Flashcards
         </span>
-        <h2 className="mt-4 text-3xl font-semibold text-slate-950 dark:text-white">Flip through AI-900 concepts</h2>
+        <h2 className="mt-4 text-3xl font-semibold text-slate-950 dark:text-white">Flip through AI-900 questions</h2>
         <p className="mt-3 max-w-2xl text-slate-600 dark:text-slate-300">
-          Use the flashcards to review definition and exam tips for each important AI-900 concept. Navigate cards by domain or swipe through the full set.
+          Use the flashcards to review questions and all answer options for AI-900 exam preparation. Flip through all questions to learn the correct answers.
         </p>
       </div>
-      <DomainFilter active={activeDomain} onChange={handleDomainChange} />
-      <AnimatePresence mode="wait">
-        {card && (
-          <FlashCard
-            key={card.id}
-            card={card}
-            flipped={flipped}
-            onFlip={() => setFlipped((value) => !value)}
-            onPrev={handlePrev}
-            onNext={handleNext}
-            index={index}
-            total={visibleCards.length}
-          />
-        )}
-      </AnimatePresence>
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div className="card-base">
-          <p className="font-semibold text-slate-900 dark:text-white">Current domain</p>
-          <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{activeDomain === 'all' ? 'All domains' : activeDomain}</p>
+      <div className="grid gap-6 lg:grid-cols-[1fr_240px]">
+        <div>
+          <AnimatePresence mode="wait">
+            {card && (
+              <FlashCard
+                key={card.id}
+                card={card}
+                flipped={flipped}
+                onFlip={() => setFlipped((value) => !value)}
+                onPrev={handlePrev}
+                onNext={handleNext}
+                index={index}
+                total={visibleCards.length}
+              />
+            )}
+          </AnimatePresence>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            <div className="card-base">
+              <p className="font-semibold text-slate-900 dark:text-white">Question type</p>
+              <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{card ? card.type.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase()) : 'N/A'}</p>
+            </div>
+            <div className="card-base">
+              <p className="font-semibold text-slate-900 dark:text-white">Total cards</p>
+              <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{visibleCards.length} flashcards available</p>
+            </div>
+          </div>
         </div>
-        <div className="card-base">
-          <p className="font-semibold text-slate-900 dark:text-white">Total cards</p>
-          <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{visibleCards.length} flashcards available</p>
-        </div>
+        <CardNavigator
+          total={visibleCards.length}
+          current={index}
+          onSelect={setIndex}
+          pageSize={30}
+        />
       </div>
     </section>
   );

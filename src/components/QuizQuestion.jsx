@@ -1,20 +1,25 @@
 import { motion } from 'framer-motion';
 
 export default function QuizQuestion({ question, selected, onSelect, feedback, disabled }) {
+  const choices = question.choices || {};
+  const choiceKeys = Object.keys(choices);
+  const choiceValues = Object.values(choices);
+
   return (
     <div className="card-base p-6">
       <h2 className="text-2xl font-semibold text-slate-950 dark:text-white">{question.question}</h2>
       <div className="mt-6 space-y-3">
-        {question.options.map((option, index) => {
-          const isActive = selected === index;
-          const isCorrect = feedback && question.answer === index;
-          const isWrong = feedback && isActive && question.answer !== index;
+        {choiceValues.map((option, index) => {
+          const key = choiceKeys[index];
+          const isActive = selected === key;
+          const isCorrect = feedback && question.answer === key;
+          const isWrong = feedback && isActive && question.answer !== key;
           return (
             <button
-              key={option}
+              key={key}
               type="button"
               disabled={disabled}
-              onClick={() => onSelect(index)}
+              onClick={() => onSelect(key)}
               className={`flex w-full items-center justify-between rounded-3xl border px-5 py-4 text-left text-sm font-medium transition ${
                 isCorrect
                   ? 'border-emerald-500 bg-emerald-50 text-emerald-900 dark:bg-emerald-900/20 dark:text-emerald-200'
@@ -26,7 +31,7 @@ export default function QuizQuestion({ question, selected, onSelect, feedback, d
               }`}
             >
               <span>{option}</span>
-              <span className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">{['A', 'B', 'C', 'D'][index]}</span>
+              <span className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">{key}</span>
             </button>
           );
         })}

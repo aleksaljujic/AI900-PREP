@@ -1,8 +1,9 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { questions } from '../data/questions';
 import DomainFilter from '../components/DomainFilter';
+import QuestionNavigator from '../components/QuestionNavigator';
 import QuizQuestion from '../components/QuizQuestion';
-import ResultsScreen from '../components/ResultsScreen';
+import ExamResultsScreen from '../components/ExamResultsScreen';
 import useProgress from '../hooks/useProgress';
 
 export default function Quiz() {
@@ -10,7 +11,7 @@ export default function Quiz() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selected, setSelected] = useState(null);
   const [showFeedback, setShowFeedback] = useState(false);
-  const [answers, setAnswers] = useState([]);
+  const [answers, setAnswers] = useState({});
   const [completed, setCompleted] = useState(false);
   const { addQuizScore } = useProgress();
 
@@ -21,19 +22,31 @@ export default function Quiz() {
 
   const currentQuestion = visibleQuestions[currentIndex];
 
-  const handleSelect = (index) => {
+  const answeredQuestions = useMemo(
+    () => visibleQuestions.reduce((acc, question, index) => {
+      if (answers[question.id] !== undefined) acc.push(index);
+      return acc;
+    }, []),
+    [answers, visibleQuestions]
+  );
+
+  // Sync selected state with current question and stored answers
+  useEffect(() => {
+    setSelected(answers[currentQuestion?.id] ?? null);
+  }, [currentQuestion, answers]);
+
+  const handleSelect = (choiceKey) => {
     if (showFeedback) return;
-    setSelected(index);
+    setSelected(choiceKey);
     setShowFeedback(true);
-    setAnswers((current) => {
-      const next = [...current];
-      next[currentIndex] = index;
-      return next;
-    });
+    setAnswers((current) => ({
+      ...current,
+      [currentQuestion.id]: choiceKey,
+    }));
   };
 
-  const correctCount = visibleQuestions.reduce((count, question, index) => {
-    return count + (answers[index] === question.answer ? 1 : 0);
+  const correctCount = visibleQuestions.reduce((count, question) => {
+    return count + (answers[question.id] === question.answer ? 1 : 0);
   }, 0);
 
   const handleNext = () => {
@@ -52,20 +65,20 @@ export default function Quiz() {
     setCurrentIndex(0);
     setSelected(null);
     setShowFeedback(false);
-    setAnswers([]);
+    setAnswers({});
     setCompleted(false);
   };
 
-  const wrongAnswers = useMemo(() => {
-    return visibleQuestions
-      .map((item, index) => ({ item, selected: answers[index] }))
-      .filter((entry) => entry.selected !== undefined && entry.selected !== entry.item.answer)
-      .map((entry) => ({
-        question: entry.item.question,
-        correct: entry.item.options[entry.item.answer],
-        explanation: entry.item.explanation,
-      }));
-  }, [answers, visibleQuestions]);
+  const handleSelectQuestion = (index) => {
+    setCurrentIndex(index);
+    setShowFeedback(false);
+    setSelected(answers[visibleQuestions[index]?.id] ?? null);
+  };
+
+  const handleRetryWrong = () => {
+    // For quiz, just retake the whole quiz
+    handleRetake();
+  };
 
   const progressPercent = visibleQuestions.length
     ? Math.round(((currentIndex + (showFeedback ? 1 : 0)) / visibleQuestions.length) * 100)
@@ -89,7 +102,7 @@ export default function Quiz() {
           setCurrentIndex(0);
           setSelected(null);
           setShowFeedback(false);
-          setAnswers([]);
+          setAnswers({});
           setCompleted(false);
         }}
       />
@@ -104,34 +117,51 @@ export default function Quiz() {
           </div>
         </div>
         {completed ? (
-          <ResultsScreen score={correctCount} total={visibleQuestions.length} wrongAnswers={wrongAnswers} onRepeat={handleRetake} />
+          <ExamResultsScreen 
+            correct={correctCount} 
+            total={visibleQuestions.length} 
+            questions={visibleQuestions} 
+            answers={visibleQuestions.reduce((acc, q, idx) => {
+              acc[idx] = answers[q.id];
+              return acc;
+            }, {})} 
+            onRetryWrong={handleRetryWrong} 
+          />
         ) : (
-          <>
-            {currentQuestion ? (
-              <QuizQuestion
-                question={currentQuestion}
-                selected={selected}
-                onSelect={handleSelect}
-                feedback={showFeedback}
-                disabled={showFeedback}
-              />
-            ) : (
-              <div className="card-base text-slate-700 dark:text-slate-300">No questions available for this domain.</div>
-            )}
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <div className="text-sm text-slate-600 dark:text-slate-300">
-                {showFeedback ? 'Review the explanation before moving on.' : 'Select an answer to reveal feedback.'}
+          <div className="grid gap-6 lg:grid-cols-[1fr_240px]">
+            <div>
+              {currentQuestion ? (
+                <QuizQuestion
+                  question={currentQuestion}
+                  selected={selected}
+                  onSelect={handleSelect}
+                  feedback={showFeedback}
+                  disabled={showFeedback}
+                />
+              ) : (
+                <div className="card-base text-slate-700 dark:text-slate-300">No questions available for this domain.</div>
+              )}
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div className="text-sm text-slate-600 dark:text-slate-300">
+                  {showFeedback ? 'Review the explanation before moving on.' : 'Select an answer to reveal feedback.'}
+                </div>
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  disabled={!showFeedback}
+                  className="rounded-3xl border border-slate-200 bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:border-slate-200 disabled:bg-slate-300 disabled:text-slate-500 dark:border-slate-700 dark:bg-slate-100 dark:text-slate-950 dark:disabled:bg-slate-800 dark:disabled:text-slate-500"
+                >
+                  {currentIndex + 1 >= visibleQuestions.length ? 'Finish quiz' : 'Next question'}
+                </button>
               </div>
-              <button
-                type="button"
-                onClick={handleNext}
-                disabled={!showFeedback}
-                className="rounded-3xl border border-slate-200 bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:border-slate-200 disabled:bg-slate-300 disabled:text-slate-500 dark:border-slate-700 dark:bg-slate-100 dark:text-slate-950 dark:disabled:bg-slate-800 dark:disabled:text-slate-500"
-              >
-                {currentIndex + 1 >= visibleQuestions.length ? 'Finish quiz' : 'Next question'}
-              </button>
             </div>
-          </>
+            <QuestionNavigator
+              total={visibleQuestions.length}
+              current={currentIndex}
+              answered={answeredQuestions}
+              onSelect={handleSelectQuestion}
+            />
+          </div>
         )}
       </div>
     </section>

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import useQuestions from '../hooks/useQuestions';
 import QuestionRenderer from '../components/questions/QuestionRenderer';
 import ExamResultsScreen from '../components/ExamResultsScreen';
+import QuestionNavigator from '../components/QuestionNavigator';
 import { isCorrectAnswer, formatAnswerDisplay, getCorrectAnswer } from '../utils/questionUtils';
 
 export default function PracticeMode() {
@@ -175,26 +176,13 @@ export default function PracticeMode() {
           </div>
         </motion.div>
 
-        <div className="card-base max-h-[600px] overflow-y-auto">
-          <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-600 dark:text-slate-400">All questions</h3>
-          <div className="mt-4 space-y-2">
-            {questions.map((q, idx) => (
-              <button
-                key={idx}
-                onClick={() => handleSelectQuestion(idx)}
-                className={`w-full rounded-2xl border px-3 py-2 text-left text-xs font-medium transition ${
-                  idx === currentIndex
-                    ? 'border-slate-900 bg-slate-900 text-white dark:border-slate-100 dark:bg-slate-100 dark:text-slate-950'
-                    : answers[idx]
-                    ? 'border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/20 dark:text-emerald-200'
-                    : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300'
-                }`}
-              >
-                Q{idx + 1}
-              </button>
-            ))}
-          </div>
-        </div>
+        <QuestionNavigator
+          total={questions.length}
+          current={currentIndex}
+          answered={Object.keys(answers).map(Number)}
+          onSelect={handleSelectQuestion}
+          pageSize={60}
+        />
       </div>
     </section>
   );
