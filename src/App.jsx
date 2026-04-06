@@ -6,6 +6,7 @@ import Topics from './pages/Topics';
 import Flashcards from './pages/Flashcards';
 import Summary from './pages/Summary';
 import ResponsibleAI from './pages/ResponsibleAI';
+import Roadmap from './pages/Roadmap';
 import QuizModeSelection from './pages/QuizModeSelection';
 import PracticeMode from './pages/PracticeMode';
 import ExamMode from './pages/ExamMode';
@@ -43,6 +44,7 @@ export default function App() {
               <Route path="/quiz/practice" element={<PracticeMode />} />
               <Route path="/quiz/exam" element={<ExamMode />} />
               <Route path="/quiz/syntetic" element={<SynteticMode />} />
+              <Route path="/roadmap" element={<Roadmap />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </motion.div>

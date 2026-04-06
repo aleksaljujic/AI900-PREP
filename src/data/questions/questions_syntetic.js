@@ -1,5 +1,5 @@
 // AI-900 Synthetic Question Set
-// Total: 100 synthetic questions
+// Total: 200 synthetic questions
 
 const questions = [
   {

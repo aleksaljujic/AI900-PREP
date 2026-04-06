@@ -1,0 +1,33 @@
+{
+  "domains": {
+    "workloads": "https://learn.microsoft.com/en-us/training/paths/get-started-with-artificial-intelligence-on-azure/",
+    "vision": "https://learn.microsoft.com/en-us/training/paths/explore-computer-vision-microsoft-azure/",
+    "language": "https://learn.microsoft.com/en-us/training/paths/explore-natural-language-processing/",
+    "conversational": "https://learn.microsoft.com/en-us/training/paths/explore-conversational-ai/"
+  },
+  "subtopics": {
+    "ai-workload-categories": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/",
+    "service-selection": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/2-understand-machine-learning",
+    "responsible-ai": "https://learn.microsoft.com/en-us/training/modules/responsible-ai-principles/",
+    "cloud-edge-ai": "https://learn.microsoft.com/en-us/training/modules/get-started-ai-fundamentals/",
+    "cognitive-services-overview": "https://learn.microsoft.com/en-us/azure/ai-services/what-are-ai-services",
+
+    "computer-vision-service": "https://learn.microsoft.com/en-us/training/modules/analyze-images-computer-vision/",
+    "custom-vision": "https://learn.microsoft.com/en-us/training/modules/classify-images-custom-vision/",
+    "form-recognizer": "https://learn.microsoft.com/en-us/training/modules/analyze-receipts-form-recognizer/",
+    "ocr-and-text-extraction": "https://learn.microsoft.com/en-us/training/modules/read-text-computer-vision/",
+    "video-spatial-analysis": "https://learn.microsoft.com/en-us/training/modules/analyze-video/",
+
+    "text-analytics": "https://learn.microsoft.com/en-us/training/modules/analyze-text-with-text-analytics-service/",
+    "language-service": "https://learn.microsoft.com/en-us/training/modules/analyze-text-ai-language/",
+    "speech-service": "https://learn.microsoft.com/en-us/training/modules/recognize-synthesize-speech/",
+    "translator-service": "https://learn.microsoft.com/en-us/training/modules/translate-text-with-translation-service/",
+    "language-patterns": "https://learn.microsoft.com/en-us/training/paths/explore-natural-language-processing/",
+
+    "bot-service": "https://learn.microsoft.com/en-us/training/modules/build-faq-chatbot-qna-maker-azure-bot-service/",
+    "qna-maker": "https://learn.microsoft.com/en-us/training/modules/build-faq-chatbot-qna-maker-azure-bot-service/",
+    "luis": "https://learn.microsoft.com/en-us/training/modules/create-language-model-with-language-understanding/",
+    "knowledge-mining": "https://learn.microsoft.com/en-us/training/modules/intro-to-azure-search/",
+    "conversational-services": "https://learn.microsoft.com/en-us/training/paths/explore-conversational-ai/"
+  }
+}
