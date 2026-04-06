@@ -3060,7 +3060,7 @@ const questions = [
   {
     "id": 175,
     "type": "multiple_choice",
-    "img": "/src/data/imgs/q175.png",
+    "img": "/imgs/q175.png",
     "_img_comment": "placeholder; dataset/table shown",
     "question": "You have a machine learning model that predicts the value of ColumnE based on the other numeric columns. Which type of model is this?",
     "choices": {
