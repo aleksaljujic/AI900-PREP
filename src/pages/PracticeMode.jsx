@@ -18,7 +18,7 @@ export default function PracticeMode() {
 
   const question = questions[currentIndex];
   const answer = answers[currentIndex];
-  const isMultiInput = question && ['multiple_choice_multi_select', 'drag_and_drop_order', 'hotspot_yes_no', 'hotspot_dropdown'].includes(question.type);
+  const isMultiInput = question && ['multiple_choice_multi_select', 'drag_and_drop', 'drag_and_drop_order', 'hotspot_yes_no', 'hotspot_dropdown'].includes(question.type);
   const hasSelection = question?.type === 'hotspot_yes_no'
     ? answer && Object.keys(answer).length > 0
     : Array.isArray(answer)
@@ -169,7 +169,7 @@ export default function PracticeMode() {
               <button
                 type="button"
                 onClick={handleNext}
-                disabled={!feedback || currentIndex === questions.length - 1}
+                disabled={currentIndex === questions.length - 1}
                 className="rounded-2xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700 disabled:opacity-50 dark:bg-slate-100 dark:text-slate-950"
               >
                 Next

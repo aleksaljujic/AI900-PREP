@@ -1,0 +1,180 @@
+{
+  "question_type_schemas": [
+
+    {
+      "type": "multiple_choice",
+      "description": "Jedno tačno pitanje sa ponuđenim odgovorima",
+      "example_id": 1,
+      "schema": {
+        "id": "broj (jedinstven identifikator pitanja)",
+        "type": "multiple_choice",
+        "img": "null ili putanja do slike (string)",
+        "question": "tekst pitanja (string)",
+        "choices": {
+          "A": "tekst odgovora A (string)",
+          "B": "tekst odgovora B (string)",
+          "C": "tekst odgovora C (string)",
+          "D": "tekst odgovora D (string, opciono)"
+        },
+        "answer": "slovo tačnog odgovora npr. 'B' (string)"
+      }
+    },
+
+    {
+      "type": "multiple_choice_multi_select",
+      "description": "Pitanje sa više tačnih odgovora",
+      "example_id": 14,
+      "schema": {
+        "id": "broj (jedinstven identifikator pitanja)",
+        "type": "multiple_choice_multi_select",
+        "img": "null ili putanja do slike (string)",
+        "question": "tekst pitanja (string)",
+        "choices": {
+          "A": "tekst odgovora A (string)",
+          "B": "tekst odgovora B (string)",
+          "C": "tekst odgovora C (string)",
+          "D": "tekst odgovora D (string)",
+          "E": "tekst odgovora E (string, opciono)",
+          "F": "tekst odgovora F (string, opciono)"
+        },
+        "answer": ["A", "C"] 
+      }
+    },
+
+    {
+      "type": "hotspot_single_select",
+      "description": "Dopunjavanje rečenice jednim odgovorom iz padajuće liste",
+      "example_id": 6,
+      "schema": {
+        "id": "broj (jedinstven identifikator pitanja)",
+        "type": "hotspot_single_select",
+        "img": "null ili putanja do slike (string)",
+        "prompt": "uputstvo za pitanje (string)",
+        "sentence": "rečenica sa prazninom označenom kao [BLANK] (string)",
+        "options": [
+          "opcija 1 (string)",
+          "opcija 2 (string)",
+          "opcija 3 (string)",
+          "opcija 4 (string, opciono)"
+        ],
+        "answer": "tačan odgovor iz liste opcija (string)"
+      }
+    },
+
+    {
+      "type": "hotspot_yes_no",
+      "description": "Niz tvrdnji — za svaku se bira Da ili Ne",
+      "example_id": 5,
+      "schema": {
+        "id": "broj (jedinstven identifikator pitanja)",
+        "type": "hotspot_yes_no",
+        "img": "null ili putanja do slike (string)",
+        "prompt": "uputstvo za pitanje (string)",
+        "statements": [
+          {
+            "text": "tekst prve tvrdnje (string)",
+            "answer": "Yes ili No (string)"
+          },
+          {
+            "text": "tekst druge tvrdnje (string)",
+            "answer": "Yes ili No (string)"
+          },
+          {
+            "text": "tekst treće tvrdnje (string, opciono)",
+            "answer": "Yes ili No (string)"
+          }
+        ]
+      }
+    },
+
+    {
+      "type": "hotspot_dropdown",
+      "description": "Više padajućih listi unutar jednog pitanja, svaka sa zasebnom prazninom",
+      "example_id": 3,
+      "schema": {
+        "id": "broj (jedinstven identifikator pitanja)",
+        "type": "hotspot_dropdown",
+        "img": "null ili putanja do slike (string)",
+        "prompt": "uputstvo za pitanje (string)",
+        "items": [
+          {
+            "text": "rečenica sa [answer choice] kao prazninom (string)",
+            "options": [
+              "opcija 1 (string)",
+              "opcija 2 (string)",
+              "opcija 3 (string)"
+            ],
+            "answer": "tačan odgovor (string)"
+          },
+          {
+            "text": "druga rečenica sa [answer choice] kao prazninom (string)",
+            "options": [
+              "opcija 1 (string)",
+              "opcija 2 (string)",
+              "opcija 3 (string)"
+            ],
+            "answer": "tačan odgovor (string)"
+          }
+        ]
+      }
+    },
+
+    {
+      "type": "drag_and_drop",
+      "description": "Spajanje pojmova sa odgovarajućim opisima prevlačenjem",
+      "example_id": 7,
+      "schema": {
+        "id": "broj (jedinstven identifikator pitanja)",
+        "type": "drag_and_drop",
+        "img": "null ili putanja do slike (string)",
+        "prompt": "uputstvo za pitanje (string)",
+        "choices_pool": [
+          "pojam 1 (string)",
+          "pojam 2 (string)",
+          "pojam 3 (string)",
+          "pojam 4 (string, opciono, može biti više od targeta — distraktori)"
+        ],
+        "targets": [
+          {
+            "text": "opis / scenario 1 (string)",
+            "answer": "tačan pojam iz choices_pool (string)"
+          },
+          {
+            "text": "opis / scenario 2 (string)",
+            "answer": "tačan pojam iz choices_pool (string)"
+          },
+          {
+            "text": "opis / scenario 3 (string, opciono)",
+            "answer": "tačan pojam iz choices_pool (string)"
+          }
+        ]
+      }
+    },
+
+    {
+      "type": "drag_and_drop_order",
+      "description": "Sortiranje koraka u tačan redosled prevlačenjem",
+      "example_id": 21,
+      "schema": {
+        "id": "broj (jedinstven identifikator pitanja)",
+        "type": "drag_and_drop_order",
+        "img": "null ili putanja do slike (string)",
+        "prompt": "uputstvo za pitanje (string)",
+        "choices_pool": [
+          "korak A (string)",
+          "korak B (string)",
+          "korak C (string)",
+          "korak D (string)",
+          "korak E (string, opciono — distraktor koji se ne koristi)"
+        ],
+        "answer_order": [
+          "prvi korak (string)",
+          "drugi korak (string)",
+          "treći korak (string)",
+          "četvrti korak (string, opciono)"
+        ]
+      }
+    }
+
+  ]
+}

@@ -1,5 +1,6 @@
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useAuth } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Topics from './pages/Topics';
@@ -11,12 +12,20 @@ import QuizModeSelection from './pages/QuizModeSelection';
 import PracticeMode from './pages/PracticeMode';
 import ExamMode from './pages/ExamMode';
 import SynteticMode from './pages/SynteticMode';
+import Login from './pages/Login';
+import Stats from './pages/Stats';
 
 const pageVariants = {
   initial: { opacity: 0, y: 24 },
   animate: { opacity: 1, y: 0 },
   exit: { opacity: 0, y: -24 },
 };
+
+function ProtectedRoute({ children }) {
+  const { user } = useAuth();
+  if (!user) return <Navigate to="/login" replace />;
+  return children;
+}
 
 export default function App() {
   const location = useLocation();
@@ -35,16 +44,18 @@ export default function App() {
             transition={{ duration: 0.35, ease: 'easeOut' }}
           >
             <Routes location={location}>
-              <Route path="/" element={<Home />} />
-              <Route path="/topics" element={<Topics />} />
-              <Route path="/flashcards" element={<Flashcards />} />
-              <Route path="/summary" element={<Summary />} />
-              <Route path="/responsible-ai" element={<ResponsibleAI />} />
-              <Route path="/quiz" element={<QuizModeSelection />} />
-              <Route path="/quiz/practice" element={<PracticeMode />} />
-              <Route path="/quiz/exam" element={<ExamMode />} />
-              <Route path="/quiz/syntetic" element={<SynteticMode />} />
-              <Route path="/roadmap" element={<Roadmap />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+              <Route path="/roadmap" element={<ProtectedRoute><Roadmap /></ProtectedRoute>} />
+              <Route path="/topics" element={<ProtectedRoute><Topics /></ProtectedRoute>} />
+              <Route path="/flashcards" element={<ProtectedRoute><Flashcards /></ProtectedRoute>} />
+              <Route path="/summary" element={<ProtectedRoute><Summary /></ProtectedRoute>} />
+              <Route path="/responsible-ai" element={<ProtectedRoute><ResponsibleAI /></ProtectedRoute>} />
+              <Route path="/stats" element={<ProtectedRoute><Stats /></ProtectedRoute>} />
+              <Route path="/quiz" element={<ProtectedRoute><QuizModeSelection /></ProtectedRoute>} />
+              <Route path="/quiz/practice" element={<ProtectedRoute><PracticeMode /></ProtectedRoute>} />
+              <Route path="/quiz/exam" element={<ProtectedRoute><ExamMode /></ProtectedRoute>} />
+              <Route path="/quiz/syntetic" element={<ProtectedRoute><SynteticMode /></ProtectedRoute>} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </motion.div>

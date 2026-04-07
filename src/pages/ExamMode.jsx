@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import useQuestionsBySet from '../hooks/useQuestionsBySet';
 import useExamTimer from '../hooks/useExamTimer';
+import useStats from '../hooks/useStats';
 import QuestionRenderer from '../components/questions/QuestionRenderer';
 import QuestionNavigator from '../components/QuestionNavigator';
 import ExamResultsScreen from '../components/ExamResultsScreen';
@@ -19,6 +20,7 @@ export default function ExamMode() {
   const [examQuestions, setExamQuestions] = useState([]);
   const [timerKey, setTimerKey] = useState(0);
   const { formatted, isExpired, percentage } = useExamTimer(45, timerKey);
+  const { recordExam } = useStats();
 
   // All hooks must be declared before any conditional logic
   useEffect(() => {
@@ -86,6 +88,10 @@ export default function ExamMode() {
   };
 
   const handleSubmit = () => {
+    const wrongIds = examQuestions
+      .filter((q, idx) => !isCorrectAnswer(q, answers[idx]))
+      .map((q) => q.id);
+    recordExam({ score: correctCount, total: examQuestions.length, wrongIds });
     setSubmitted(true);
   };
 

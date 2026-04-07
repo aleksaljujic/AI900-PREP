@@ -4,9 +4,8 @@ export default function DragDropQuestion({ question, selected, onSelect, feedbac
   const [matches, setMatches] = useState(selected || {});
   const [draggedItem, setDraggedItem] = useState(null);
 
-  const availableChoices = question.choices_pool.filter(
-    (choice) => !Object.values(matches).includes(choice)
-  );
+  // All choices stay visible — same choice can be placed in multiple targets
+  const availableChoices = question.choices_pool;
 
   const handleDragStart = (choice) => {
     setDraggedItem(choice);
@@ -78,6 +77,7 @@ export default function DragDropQuestion({ question, selected, onSelect, feedbac
               const match = matches[idx];
               const isCorrect = feedback && match === target.answer;
               const isWrong = feedback && match && match !== target.answer;
+              const isHovered = draggedItem && !disabled;
 
               return (
                 <div
@@ -85,11 +85,13 @@ export default function DragDropQuestion({ question, selected, onSelect, feedbac
                   onDragOver={handleDragOver}
                   onDrop={(e) => handleDrop(e, idx)}
                   className={`rounded-2xl border-2 border-dashed p-4 transition ${
-                    isCorrect
-                      ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20'
-                      : isWrong
-                      ? 'border-rose-500 bg-rose-50 dark:bg-rose-900/20'
-                      : draggedItem
+                    feedback
+                      ? isCorrect
+                        ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20'
+                        : isWrong
+                        ? 'border-rose-500 bg-rose-50 dark:bg-rose-900/20'
+                        : 'border-slate-300 bg-white dark:border-slate-700 dark:bg-slate-900'
+                      : isHovered
                       ? 'border-blue-400 bg-blue-50 dark:bg-blue-900/10'
                       : 'border-slate-300 bg-white dark:border-slate-700 dark:bg-slate-900'
                   }`}
