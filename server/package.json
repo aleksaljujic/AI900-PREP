@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "commonjs",
   "scripts": {
-    "start": "node server.js",
+    "start": "npm install --production && node server.js",
     "build": "echo 'No build needed'",
     "dev": "fuser -k 3001/tcp 2>/dev/null; nodemon server.js",
     "migrate": "node src/db/migrations/run.js",
