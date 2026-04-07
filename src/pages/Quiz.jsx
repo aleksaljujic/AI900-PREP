@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import questions from '../data/questions/questions';
+import useQuestionsBySet from '../hooks/useQuestionsBySet';
 import DomainFilter from '../components/DomainFilter';
 import QuestionNavigator from '../components/QuestionNavigator';
 import QuizQuestion from '../components/QuizQuestion';
@@ -7,6 +7,7 @@ import ExamResultsScreen from '../components/ExamResultsScreen';
 import useProgress from '../hooks/useProgress';
 
 export default function Quiz() {
+  const { questions } = useQuestionsBySet('standard');
   const [activeDomain, setActiveDomain] = useState('all');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selected, setSelected] = useState(null);
