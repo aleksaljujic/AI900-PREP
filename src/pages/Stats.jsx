@@ -5,7 +5,6 @@ import { useAuth } from '../context/AuthContext';
 import useStats from '../hooks/useStats';
 import useProgress from '../hooks/useProgress';
 import { domains } from '../data/topics';
-import questions from '../data/questions/questions.js';
 
 function StatCard({ label, value, sub }) {
   return (
@@ -31,7 +30,7 @@ export default function Stats() {
 
   const wrongIndices = allWrongQuestions
     .map((id) => id - 1)
-    .filter((i) => i >= 0 && i < questions.length);
+    .filter((i) => i >= 0);
 
   const handleSelectWrongQuestion = (index) => {
     setModalOpen(false);
