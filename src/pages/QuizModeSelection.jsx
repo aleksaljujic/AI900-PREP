@@ -1,22 +1,16 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import api from '../lib/api';
+import { useState } from 'react';
+
+const SETS = [
+  { value: 'standard', label: 'Standard Questions' },
+  { value: 'syntetic', label: 'Synthetic Questions' },
+  { value: 'genai_synthetic', label: 'GenAI Synthetic Questions' },
+  { value: 'AI102', label: 'AI-102 Questions' },
+];
 
 export default function QuizModeSelection() {
   const [selectedSet, setSelectedSet] = useState('standard');
-  const [sets, setSets] = useState([]);
-
-  useEffect(() => {
-    api.get('/questions/sets')
-      .then(({ data }) => {
-        setSets(data);
-        if (data.length > 0 && !data.includes('standard')) {
-          setSelectedSet(data[0]);
-        }
-      })
-      .catch(() => setSets(['standard']));
-  }, []);
 
   return (
     <section className="space-y-10 pb-10">
@@ -40,8 +34,8 @@ export default function QuizModeSelection() {
           onChange={(e) => setSelectedSet(e.target.value)}
           className="mt-4 rounded-lg border border-slate-300 bg-white px-3 py-2 text-slate-900 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100"
         >
-          {sets.map((set) => (
-            <option key={set} value={set}>{set}</option>
+          {SETS.map((set) => (
+            <option key={set.value} value={set.value}>{set.label}</option>
           ))}
         </select>
       </div>

@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
-import api from '../lib/api';
+import questionsData from '../data/questions/questions';
+import synteticData from '../data/questions/questions_syntetic';
+import genaiSynteticData from '../data/questions/questions_genai_synthetic';
+import ai102Data from '../data/questions/question_AI102';
 
 export default function useQuestionsBySet(set = 'standard') {
   const [questions, setQuestions] = useState([]);
@@ -7,12 +10,23 @@ export default function useQuestionsBySet(set = 'standard') {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLoading(true);
-    setError(null);
-    api.get(`/questions?set=${set}`)
-      .then(({ data }) => setQuestions(data))
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
+    try {
+      let data;
+      if (set === 'syntetic') {
+        data = synteticData;
+      } else if (set === 'genai_synthetic') {
+        data = genaiSynteticData;
+      } else if (set === 'AI102') {
+        data = ai102Data;
+      } else {
+        data = questionsData;
+      }
+      setQuestions(data);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   }, [set]);
 
   return { questions, loading, error };

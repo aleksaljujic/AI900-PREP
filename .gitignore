@@ -14,8 +14,6 @@ server/.env.*
 # credentials
 creds.txt
 
-# question data (stored in MongoDB)
-src/data/questions/
 *.pem
 *.key
 *.p12
