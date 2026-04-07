@@ -74,5 +74,10 @@ export default function useStats() {
         .map(([id, count]) => ({ id: Number(id), count }))
     : [];
 
-  return { stats, topWrongQuestions, recordExam, clearStats };
+  // All wrong question IDs (ever answered incorrectly)
+  const allWrongQuestions = stats
+    ? Object.keys(stats.wrongQuestions).map((id) => Number(id))
+    : [];
+
+  return { stats, topWrongQuestions, allWrongQuestions, recordExam, clearStats };
 }

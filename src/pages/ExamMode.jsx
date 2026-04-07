@@ -19,6 +19,7 @@ export default function ExamMode() {
   const [submitted, setSubmitted] = useState(false);
   const [examQuestions, setExamQuestions] = useState([]);
   const [timerKey, setTimerKey] = useState(0);
+  const [confirmSubmit, setConfirmSubmit] = useState(false);
   const { formatted, isExpired, percentage } = useExamTimer(45, timerKey);
   const { recordExam } = useStats();
 
@@ -171,7 +172,7 @@ export default function ExamMode() {
               </button>
               <button
                 type="button"
-                onClick={handleSubmit}
+                onClick={() => setConfirmSubmit(true)}
                 className="rounded-2xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700 dark:bg-slate-100 dark:text-slate-950"
               >
                 Submit Exam
@@ -182,6 +183,33 @@ export default function ExamMode() {
 
         <QuestionNavigator total={examQuestions.length} current={currentIndex} answered={answeredQuestions} onSelect={handleSelectQuestion} />
       </div>
+
+      {confirmSubmit && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+          <div className="w-full max-w-sm rounded-3xl bg-white p-6 shadow-2xl dark:bg-slate-900">
+            <h3 className="text-lg font-semibold text-slate-950 dark:text-white">Submit exam?</h3>
+            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+              {Object.keys(answers).length}/{examQuestions.length} questions answered. You can't change answers after submitting.
+            </p>
+            <div className="mt-6 flex gap-3">
+              <button
+                type="button"
+                onClick={() => setConfirmSubmit(false)}
+                className="flex-1 rounded-2xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={() => { setConfirmSubmit(false); handleSubmit(); }}
+                className="flex-1 rounded-2xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700 dark:bg-slate-100 dark:text-slate-950"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

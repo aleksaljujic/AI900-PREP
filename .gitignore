@@ -8,6 +8,18 @@ dist/
 .env
 .env.local
 .env.*.local
+server/.env
+server/.env.*
+
+# credentials
+creds.txt
+
+# question data (stored in MongoDB)
+src/data/questions/
+*.pem
+*.key
+*.p12
+*.pfx
 
 # misc
 .DS_Store

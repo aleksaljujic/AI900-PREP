@@ -1,9 +1,22 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import api from '../lib/api';
 
 export default function QuizModeSelection() {
   const [selectedSet, setSelectedSet] = useState('standard');
+  const [sets, setSets] = useState([]);
+
+  useEffect(() => {
+    api.get('/questions/sets')
+      .then(({ data }) => {
+        setSets(data);
+        if (data.length > 0 && !data.includes('standard')) {
+          setSelectedSet(data[0]);
+        }
+      })
+      .catch(() => setSets(['standard']));
+  }, []);
 
   return (
     <section className="space-y-10 pb-10">
@@ -27,9 +40,9 @@ export default function QuizModeSelection() {
           onChange={(e) => setSelectedSet(e.target.value)}
           className="mt-4 rounded-lg border border-slate-300 bg-white px-3 py-2 text-slate-900 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100"
         >
-          <option value="standard">Standard Questions</option>
-          <option value="synthetic">Synthetic Questions</option>
-          <option value="genai_synthetic">GenAI Synthetic Questions</option>
+          {sets.map((set) => (
+            <option key={set} value={set}>{set}</option>
+          ))}
         </select>
       </div>
 
@@ -109,45 +122,6 @@ export default function QuizModeSelection() {
             Start Exam Simulation
           </Link>
         </motion.div>
-
-        {/* <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="card-base flex flex-col gap-6"
-        >
-          <div>
-            <h3 className="text-2xl font-semibold text-slate-950 dark:text-white">Practice V2 Mode</h3>
-            <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Perfect for learning at your own pace</p>
-          </div>
-
-          <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-300">
-            <li className="flex items-start gap-3">
-              <span className="mt-1 h-2 w-2 rounded-full bg-slate-900 dark:bg-slate-100" />
-              <span>All questions in sequence</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="mt-1 h-2 w-2 rounded-full bg-slate-900 dark:bg-slate-100" />
-              <span>Immediate answer feedback</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="mt-1 h-2 w-2 rounded-full bg-slate-900 dark:bg-slate-100" />
-              <span>Jump to any question</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="mt-1 h-2 w-2 rounded-full bg-slate-900 dark:bg-slate-100" />
-              <span>No time pressure</span>
-            </li>
-          </ul>
-
-          <Link
-            to="/quiz/syntetic"
-            className="mt-auto rounded-3xl bg-slate-900 px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-slate-700 dark:bg-slate-100 dark:text-slate-950 dark:hover:bg-slate-200"
-          >
-            Start Practice V2 Mode
-          </Link>
-        </motion.div> */}
-        
       </div>
     </section>
   );
