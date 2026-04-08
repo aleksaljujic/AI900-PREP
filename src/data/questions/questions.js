@@ -2464,7 +2464,7 @@ const questions = [
     "statements": [
       {
         "text": "You can communicate with a bot by using Cortana.",
-        "answer": "Yes"
+        "answer": "No"
       },
       {
         "text": "You can communicate with a bot by using Microsoft Teams.",
