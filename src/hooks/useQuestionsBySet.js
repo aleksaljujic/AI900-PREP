@@ -3,6 +3,7 @@ import questionsData from '../data/questions/questions';
 import synteticData from '../data/questions/questions_syntetic';
 import genaiSynteticData from '../data/questions/questions_genai_synthetic';
 import ai102Data from '../data/questions/question_AI102';
+import awsMlData from '../data/questions/questions_aws_ml.json';
 
 export default function useQuestionsBySet(set = 'standard') {
   const [questions, setQuestions] = useState([]);
@@ -18,6 +19,8 @@ export default function useQuestionsBySet(set = 'standard') {
         data = genaiSynteticData;
       } else if (set === 'AI102') {
         data = ai102Data;
+      } else if (set === 'aws_ml') {
+        data = awsMlData;
       } else {
         data = questionsData;
       }

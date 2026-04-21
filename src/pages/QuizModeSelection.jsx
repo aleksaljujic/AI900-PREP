@@ -7,6 +7,7 @@ const SETS = [
   { value: 'syntetic', label: 'Synthetic Questions' },
   { value: 'genai_synthetic', label: 'GenAI Synthetic Questions' },
   { value: 'AI102', label: 'AI-102 Questions' },
+  { value: 'aws_ml', label: 'AWS ML Engineer Questions' },
 ];
 
 export default function QuizModeSelection() {

@@ -1,20 +1,23 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
 
 export default function DragDropQuestion({ question, selected, onSelect, feedback, disabled }) {
   const [matches, setMatches] = useState(selected || {});
   const [draggedItem, setDraggedItem] = useState(null);
 
-  // All choices stay visible — same choice can be placed in multiple targets
-  const availableChoices = question.choices_pool;
+  const shuffledChoices = useMemo(() => shuffle(question.choices_pool), [question.id]);
+  const shuffledTargets = useMemo(() => question.targets.map((t, i) => ({ ...t, _origIdx: i })), [question.id]);
 
-  const handleDragStart = (choice) => {
-    setDraggedItem(choice);
-  };
-
-  const handleDragOver = (e) => {
-    e.preventDefault();
-    e.dataTransfer.dropEffect = 'move';
-  };
+  const handleDragStart = (choice) => setDraggedItem(choice);
+  const handleDragOver = (e) => { e.preventDefault(); e.dataTransfer.dropEffect = 'move'; };
 
   const handleDrop = (e, targetIdx) => {
     e.preventDefault();
@@ -47,18 +50,15 @@ export default function DragDropQuestion({ question, selected, onSelect, feedbac
         <div className="space-y-3">
           <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-200">Available options</h4>
           <div className="flex flex-wrap gap-2">
-            {availableChoices.map((choice) => (
+            {shuffledChoices.map((choice) => (
               <button
                 key={choice}
                 type="button"
                 draggable={!disabled}
                 onDragStart={() => handleDragStart(choice)}
                 onClick={() => {
-                  const emptySlot = Object.keys(matches).length < question.targets.length
-                    ? question.targets.length - Object.keys(matches).length
-                    : null;
-                  if (emptySlot) {
-                    const targetIdx = Object.keys(matches).length;
+                  const targetIdx = Object.keys(matches).length;
+                  if (targetIdx < question.targets.length) {
                     handleSelectChoice(choice, targetIdx);
                   }
                 }}
@@ -73,7 +73,8 @@ export default function DragDropQuestion({ question, selected, onSelect, feedbac
         <div className="space-y-3">
           <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-200">Matches</h4>
           <div className="space-y-2">
-            {question.targets.map((target, idx) => {
+            {shuffledTargets.map((target) => {
+              const idx = target._origIdx;
               const match = matches[idx];
               const isCorrect = feedback && match === target.answer;
               const isWrong = feedback && match && match !== target.answer;

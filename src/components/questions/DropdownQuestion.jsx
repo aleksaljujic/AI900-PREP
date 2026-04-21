@@ -1,11 +1,23 @@
+import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 export default function DropdownQuestion({ question, selected, onSelect, feedback, disabled }) {
+  const shuffled = useMemo(() => shuffle(question.items), [question.id]);
+
   return (
     <div className="space-y-6">
       <p className="text-sm font-semibold text-slate-600 dark:text-slate-300">{question.prompt}</p>
       <div className="space-y-4">
-        {question.items.map((item, idx) => {
+        {shuffled.map((item, idx) => {
           const answer = selected?.[idx];
           const isCorrect = feedback && answer === item.answer;
           const isWrong = feedback && answer && answer !== item.answer;

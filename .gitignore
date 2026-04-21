@@ -32,3 +32,6 @@ node_modules/.vite/
 .vscode/
 .idea/
 *.swp
+
+data/AWS ML/*
+

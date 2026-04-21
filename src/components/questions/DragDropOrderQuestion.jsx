@@ -1,10 +1,20 @@
+import { useMemo } from 'react';
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 export default function DragDropOrderQuestion({ question, selected = [], onSelect, feedback, disabled }) {
   const order = Array.isArray(selected) ? selected : [];
+  const shuffledPool = useMemo(() => shuffle(question.choices_pool), [question.id]);
 
   const handleUpdateOrder = (newOrder) => {
-    if (!disabled) {
-      onSelect(newOrder);
-    }
+    if (!disabled) onSelect(newOrder);
   };
 
   const toggleItem = (choice) => {
@@ -68,22 +78,8 @@ export default function DragDropOrderQuestion({ question, selected = [], onSelec
                   <span className="text-sm font-medium text-slate-700 dark:text-slate-200">{item}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={() => moveItem(idx, -1)}
-                    disabled={disabled || idx === 0}
-                    className="rounded-full border border-slate-200 p-2 text-slate-700 transition hover:bg-slate-100 disabled:opacity-50 dark:border-slate-800 dark:text-slate-200 dark:hover:bg-slate-800"
-                  >
-                    ↑
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => moveItem(idx, 1)}
-                    disabled={disabled || idx === order.length - 1}
-                    className="rounded-full border border-slate-200 p-2 text-slate-700 transition hover:bg-slate-100 disabled:opacity-50 dark:border-slate-800 dark:text-slate-200 dark:hover:bg-slate-800"
-                  >
-                    ↓
-                  </button>
+                  <button type="button" onClick={() => moveItem(idx, -1)} disabled={disabled || idx === 0} className="rounded-full border border-slate-200 p-2 text-slate-700 transition hover:bg-slate-100 disabled:opacity-50 dark:border-slate-800 dark:text-slate-200 dark:hover:bg-slate-800">↑</button>
+                  <button type="button" onClick={() => moveItem(idx, 1)} disabled={disabled || idx === order.length - 1} className="rounded-full border border-slate-200 p-2 text-slate-700 transition hover:bg-slate-100 disabled:opacity-50 dark:border-slate-800 dark:text-slate-200 dark:hover:bg-slate-800">↓</button>
                 </div>
               </li>
             ))}
@@ -96,7 +92,7 @@ export default function DragDropOrderQuestion({ question, selected = [], onSelec
       <div className="space-y-2">
         <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-200">Available items</h4>
         <div className="flex flex-wrap gap-2">
-          {question.choices_pool.map((choice) => {
+          {shuffledPool.map((choice) => {
             const isSelected = order.includes(choice);
             return (
               <button

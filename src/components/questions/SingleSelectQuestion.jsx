@@ -1,4 +1,17 @@
+import { useMemo } from 'react';
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 export default function SingleSelectQuestion({ question, selected, onSelect, feedback, disabled }) {
+  const shuffledOptions = useMemo(() => shuffle(question.options), [question.id]);
+
   return (
     <div className="space-y-6">
       <div className="rounded-2xl bg-slate-50 p-4 dark:bg-slate-900">
@@ -6,7 +19,7 @@ export default function SingleSelectQuestion({ question, selected, onSelect, fee
         <p className="mt-3 text-base font-medium text-slate-900 dark:text-white">{question.sentence}</p>
       </div>
       <div className="space-y-3">
-        {question.options.map((option) => {
+        {shuffledOptions.map((option) => {
           const isSelected = selected === option;
           const isCorrect = feedback && question.answer === option;
           const isWrong = feedback && isSelected && question.answer !== option;
@@ -27,7 +40,6 @@ export default function SingleSelectQuestion({ question, selected, onSelect, fee
                   : 'border-slate-200 bg-white hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200'
               }`}
             >
-              <span className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-current mr-3">{isSelected ? '✓' : ''}</span>
               {option}
             </button>
           );
