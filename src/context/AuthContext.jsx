@@ -5,6 +5,7 @@ const AuthContext = createContext(null);
 
 const AUTH_KEY = 'ai900_auth';
 const TOKEN_KEY = 'ai900_token';
+const OFFLINE = import.meta.env.VITE_OFFLINE_MODE === 'true';
 
 function safeParse(v) {
   try { return JSON.parse(v); } catch { return null; }
@@ -14,6 +15,12 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(() => safeParse(localStorage.getItem(AUTH_KEY)));
 
   const login = async (username, password) => {
+    if (OFFLINE) {
+      const u = { username };
+      localStorage.setItem(AUTH_KEY, JSON.stringify(u));
+      setUser(u);
+      return;
+    }
     const { data } = await api.post('/auth/login', { username, password });
     localStorage.setItem(TOKEN_KEY, data.token);
     localStorage.setItem(AUTH_KEY, JSON.stringify(data.user));
@@ -21,6 +28,12 @@ export function AuthProvider({ children }) {
   };
 
   const register = async (username, password) => {
+    if (OFFLINE) {
+      const u = { username };
+      localStorage.setItem(AUTH_KEY, JSON.stringify(u));
+      setUser(u);
+      return;
+    }
     const { data } = await api.post('/auth/register', { username, password });
     localStorage.setItem(TOKEN_KEY, data.token);
     localStorage.setItem(AUTH_KEY, JSON.stringify(data.user));

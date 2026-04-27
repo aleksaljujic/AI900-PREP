@@ -26,8 +26,10 @@ export function isCorrectAnswer(question, answer) {
 
   if (question.type === 'drag_and_drop_order') {
     if (!Array.isArray(correctAnswer) || !Array.isArray(answer)) return false;
-    if (correctAnswer.length !== answer.length) return false;
-    return correctAnswer.every((value, index) => answer[index] === value);
+    const pool = Array.isArray(question.choices_pool) ? question.choices_pool : [];
+    const validOrder = pool.length > 0 ? correctAnswer.filter((v) => pool.includes(v)) : correctAnswer;
+    if (validOrder.length === 0 || validOrder.length !== answer.length) return false;
+    return validOrder.every((value, index) => answer[index] === value);
   }
 
   if (Array.isArray(correctAnswer) && Array.isArray(answer)) {

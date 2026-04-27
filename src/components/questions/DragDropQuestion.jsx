@@ -1,20 +1,8 @@
-import { useMemo, useState } from 'react';
-
-function shuffle(arr) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
+import { useState } from 'react';
 
 export default function DragDropQuestion({ question, selected, onSelect, feedback, disabled }) {
   const [matches, setMatches] = useState(selected || {});
   const [draggedItem, setDraggedItem] = useState(null);
-
-  const shuffledChoices = useMemo(() => shuffle(question.choices_pool), [question.id]);
-  const shuffledTargets = useMemo(() => question.targets.map((t, i) => ({ ...t, _origIdx: i })), [question.id]);
 
   const handleDragStart = (choice) => setDraggedItem(choice);
   const handleDragOver = (e) => { e.preventDefault(); e.dataTransfer.dropEffect = 'move'; };
@@ -50,7 +38,7 @@ export default function DragDropQuestion({ question, selected, onSelect, feedbac
         <div className="space-y-3">
           <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-200">Available options</h4>
           <div className="flex flex-wrap gap-2">
-            {shuffledChoices.map((choice) => (
+            {question.choices_pool.map((choice) => (
               <button
                 key={choice}
                 type="button"
@@ -73,8 +61,7 @@ export default function DragDropQuestion({ question, selected, onSelect, feedbac
         <div className="space-y-3">
           <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-200">Matches</h4>
           <div className="space-y-2">
-            {shuffledTargets.map((target) => {
-              const idx = target._origIdx;
+            {question.targets.map((target, idx) => {
               const match = matches[idx];
               const isCorrect = feedback && match === target.answer;
               const isWrong = feedback && match && match !== target.answer;

@@ -26,8 +26,8 @@ const questions = [
   {
     "id": 2,
     "type": "drag_and_drop_order",
-    "img": null,
-    "prompt": "You plan to use a Language Understanding application named app1 that is deployed to a container. App1 was developed by using a Language Understanding authoring resource named lu1. App1 has the versions shown in the following table. Version Trained date Published date V1.2 None None V1.1 2020-10-01 None V1.0 2020-09-01 2020-09-15 You need to create a container that uses the latest deployable version of app1. Whic thre actions should you performin sequence?To answer, move theappropriat actions from the lst actions to the answer are an arrange them in the cor order.",
+    "img": "/AI102_imgs/q2.png",
+    "prompt": "You plan to use a Language Understanding application named app1 that is deployed to a container. App1 was developed by using a Language Understanding authoring resource named lu1. App1 has the versions shown in the following table. Version Trained date Published date V1.2 None None V1.1 2020-10-01 None V1.0 2020-09-01 2020-09-15 You need to create a container that uses the latest deployable version of app1. Which three actions should you performin sequence?",
     "choices_pool": [
       "Run a container that has version set as an environment variable.",
       "Export the model by using the Export as JSON option.",
@@ -72,7 +72,7 @@ const questions = [
   {
     "id": 5,
     "type": "hotspot_dropdown",
-    "img": null,
+    "img": "/AI102_imgs/q5.png",
     "prompt": "You need to create a new resource that wil be used to perform sentiment analysis and optical character recognition (ocR). The solution must meet the following requirements: Use a single key and endpoint to access multiple services. Consolidate billing for future services that you might use. Support the use of Computer Vision in the future. How should you complete the HTTP request to create the new resource? To answer, select the appropriate options in the answer area.",
     "items": [
       {
@@ -81,11 +81,6 @@ const questions = [
           "PATCH",
           "POST",
           "PUT",
-          "xXXX-XXXX-",
-          "xxxxxxxxxxxx/resourceGroups/RGl/providers/Microsoft.CognitiveServices/",
-          "ccounts/cs1?api-version=2017-04-18",
-          "\"location\": \"West US\",",
-          "\"kind\": \""
         ],
         "answer": "PUT"
       },
@@ -95,12 +90,6 @@ const questions = [
           "CognitiveServices",
           "ComputerVision",
           "TextAnalytics",
-          "\"sku\": {",
-          "\"name\": \"So\"",
-          "\"properties\": {},",
-          "\"identity\": {",
-          "\"type\": \"SystemAssigned\"",
-          "}"
         ],
         "answer": "CognitiveServices"
       }
@@ -137,37 +126,33 @@ const questions = [
       "Push the image to Docker Hub."
     ],
     "answer_order": [
-      "Distribute a docker run script.",
-      "Push the image to an Azure container registry.",
-      "Push the image to an Azure container registry.",
-      "Distribute a docker run script.",
-      "Build the image.",
-      "Push the image to Docker Hub.",
-      "Step 1: Pull the Anomaly Detector container image.",
-      "Step 2: Create a custom Dockerfile",
-      "Step 3: Push the image to an Azure container registry.",
-      "To push an image to an Azure Container registry, you must first have an image.",
-      "Step 4: Distribute the docker run script",
-      "Jse the docker run command to run the containers."
+        "Pull the Anomaly Detector container image.",
+        "Create a custom Dockerfile.",
+        "Push the image to an Azure container registry.",
+        "Distribute a docker run script."
     ]
   },
   {
     "id": 8,
     "type": "hotspot_dropdown",
-    "img": null,
-    "prompt": "You plan to deploy a containerized version of an Azure Cognitive Services service that will be used for text analysis. You configure https://contoso.cognitiveservices.azure.com as the endpoint URI for the service, and you pul the latest version of the Text Analytics Sentiment Analysis container. You need to run the container on an Azure virtual machine by using Docker. How should you complete the command? To answer, select the appropriate options in the answer area.",
+    "img": "/AI102_imgs/q8.png",
+    "prompt": "You plan to deploy a containerized version of an Azure Cognitive Services service that will be used for text analysis. You configure https://contoso.cognitiveservices.azure.com as the endpoint URI for the service, and you pull the latest version of the Text Analytics Sentiment Analysis container. You need to run the container on an Azure virtual machine by using Docker. How should you complete the command? To answer, select the appropriate options in the answer area.",
     "items": [
       {
         "text": "[answer choice 1]",
         "options": [
-          "docker run --rm -it -p 5000:5000 --memory 8g --cpus 1 \\",
+          "http://contoso.blob.core.windows.net",
+          "https://contoso.cognitiveservices.azure.com",
+        ],
+        "answer": "mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment"
+      },
+      {
+        "text": "[answer choice 2]",
+        "options": [
+          "http://contoso.blob.core.windows.net",
+          "https://contoso.cognitiveservices.azure.com",
           "mcr.microsoft.com/azure-cognitive-services/textanalytics/keyphrase",
           "mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment",
-          "Eula=accept \\",
-          "Billing=",
-          "mcr.microsoft.com/azure-cognitive-services/textanalytics/keyphrase",
-          "mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment",
-          "ApiKey=xxxxxxxxxxxxxxxxxxx"
         ],
         "answer": "https://contoso.cognitiveservices.azure.com"
       }
@@ -176,8 +161,8 @@ const questions = [
   {
     "id": 9,
     "type": "multiple_choice",
-    "img": null,
-    "question": "You have the following C# method for creating Azure Cognitive Services resources programmatically static void create resource(CognitiveServicesManagementClient client, string resource name, string kind, string account tier, string location) CognitiveServicesAccount parameters = new CognitiveServicesAccount(null, null, kind, location, resource name, new CognitiveServicesAccountProperties(), new Sku(account tier)); var result = client.Accounts.Create(resource group name, account_tier, parameters); You need to call the method to create a free Azure resource in the West US Azure region. The resource will be used to generate captions of images automatically Which code should you use?",
+    "img": "/AI102_imgs/q9.png",
+    "question": "You have the following C# method for creating Azure Cognitive Services resources programmatically. You need to call the method to create a free Azure resource in the West US Azure region. The resource will be used to generate captions of images automatically Which code should you use?",
     "choices": {
       "A": "create_resource(client, \"res1\", \"ComputerVision\", \"F0\", \"westus\")",
       "B": "create_resource(client, \"res1\", \"CustomVision.Prediction\", \"F0\", \"westus\")",
@@ -219,7 +204,7 @@ const questions = [
     "id": 12,
     "type": "multiple_choice",
     "img": null,
-    "question": "o s   t n i ee goals. Some question sets might have more than one correct solution, while others might not have a correct solution. After you answer a question in this section, you will NoT be able to return to it. As a result, these questions will not appear in the review screen. You have an Azure Cognitive Search service. During the past 12 months, query volume steadily increased. ou discover that some search query requests to the Cognitive Search service are being throttled. ou need to reduce the likelihood that search query requests are throttled. Solution: You migrate to a Cognitive Search service that uses a higher tier. Does this meet the goal?",
+    "question": "NOTE: Some question sets might have more than one correct solution, while others might not have a correct solution. After you answer a question in this section, you will NoT be able to return to it. As a result, these questions will not appear in the review screen. You have an Azure Cognitive Search service. During the past 12 months, query volume steadily increased. ou discover that some search query requests to the Cognitive Search service are being throttled. ou need to reduce the likelihood that search query requests are throttled. Solution: You migrate to a Cognitive Search service that uses a higher tier. Does this meet the goal?",
     "choices": {
       "A": "Yes",
       "B": "No"
@@ -253,7 +238,7 @@ const questions = [
     "id": 14,
     "type": "multiple_choice",
     "img": null,
-    "question": "QueSlloll #Z4 You have receipts that are accessible from a URL. You need to extract data from the receipts by using Form Recognizer and the SDK. The solution must use a prebuilt model. Which client and method should you use?",
+    "question": "You have receipts that are accessible from a URL. You need to extract data from the receipts by using Form Recognizer and the SDK. The solution must use a prebuilt model. Which client and method should you use?",
     "choices": {
       "A": "the FormRecognizerClient client and the StartRecognizeContentFromUri method",
       "B": "the FormTrainingClient client and the StartRecognizeContentFromUri method",
@@ -266,7 +251,7 @@ const questions = [
     "id": 15,
     "type": "multiple_choice",
     "img": null,
-    "question": "You have a collection of 50,o00 scanned documents that contain text. You plan to make the text available through Azure Cognitive Search. You need to configure an enrichment pipeline to perform optical character recognition (OcR) and text analytics. The solution must minimize costs. What should you attach to the skillset?",
+    "question": "You have a collection of 50,000 scanned documents that contain text. You plan to make the text available through Azure Cognitive Search. You need to configure an enrichment pipeline to perform optical character recognition (OcR) and text analytics. The solution must minimize costs. What should you attach to the skillset?",
     "choices": {
       "A": "a new Computer Vision resource",
       "B": "a free (Limited enrichments) Cognitive Services resource",
@@ -279,7 +264,7 @@ const questions = [
     "id": 16,
     "type": "multiple_choice",
     "img": null,
-    "question": "goals. Some question sets might have more than one correct solution, while others might not have a correct solution. After you answer a question in this section, you will NoT be able to return to it. As a result, these questions will not appear in the review screen. You have an Azure Cognitive Search service. Ouring the past 12 months, query volume steadily increased. You discover that some search query requests to the Cognitive Search service are being throttled. You need to reduce the likelihood that search query requests are throttled. Solution: You add indexes. Does this meet the goal?",
+    "question": "NOTE: Some question sets might have more than one correct solution, while others might not have a correct solution. After you answer a question in this section, you will NoT be able to return to it. As a result, these questions will not appear in the review screen. You have an Azure Cognitive Search service. Ouring the past 12 months, query volume steadily increased. You discover that some search query requests to the Cognitive Search service are being throttled. You need to reduce the likelihood that search query requests are throttled. Solution: You add indexes. Does this meet the goal?",
     "choices": {
       "A": "Yes",
       "B": "No"
@@ -290,7 +275,7 @@ const questions = [
     "id": 17,
     "type": "multiple_choice",
     "img": null,
-    "question": "goals. Some question sets might have more than one correct solution, while others might not have a correct solution. After you answer a question in this section, you will NoT be able to return to it. As a result, these questions will not appear in the review screen. You have an Azure Cognitive Search service. During the past 12 months, query volume steadily increased. ou discover that some search query requests to the Cognitive Search service are being throttled. ou need to reduce the likelihood that search query requests are throttled. Solution: You enable customer-managed key (CMK) encryption. Does this meet the goal?",
+    "question": "NOTE: Some question sets might have more than one correct solution, while others might not have a correct solution. After you answer a question in this section, you will NoT be able to return to it. As a result, these questions will not appear in the review screen. You have an Azure Cognitive Search service. During the past 12 months, query volume steadily increased. ou discover that some search query requests to the Cognitive Search service are being throttled. ou need to reduce the likelihood that search query requests are throttled. Solution: You enable customer-managed key (CMK) encryption. Does this meet the goal?",
     "choices": {
       "A": "Yes",
       "B": "No"
@@ -301,7 +286,7 @@ const questions = [
     "id": 18,
     "type": "multiple_choice",
     "img": null,
-    "question": "goals. Some question sets might have more than one correct solution, while others might not have a correct solution. After you answer a question in this section, you will NoT be able to return to it. As a result, these questions will not appear in the review screen. You create a web app named app1 that runs on an Azure virtual machine named vm1. Vm1 is on an Azure virtual network named vnet1. You plan to create a new Azure Cognitive Search service named service1. You need to ensure that app1 can connect directly to service1 without routing traffic over the public internet. Solution: You deploy service1 and a private endpoint to vnet1. Does this meet the goal?",
+    "question": "NOTE: Some question sets might have more than one correct solution, while others might not have a correct solution. After you answer a question in this section, you will NoT be able to return to it. As a result, these questions will not appear in the review screen. You create a web app named app1 that runs on an Azure virtual machine named vm1. Vm1 is on an Azure virtual network named vnet1. You plan to create a new Azure Cognitive Search service named service1. You need to ensure that app1 can connect directly to service1 without routing traffic over the public internet. Solution: You deploy service1 and a private endpoint to vnet1. Does this meet the goal?",
     "choices": {
       "A": "Yes",
       "B": "No"
@@ -324,22 +309,27 @@ const questions = [
   {
     "id": 20,
     "type": "hotspot_dropdown",
-    "img": null,
+    "img": "/AI102_imgs/q30.png",
     "prompt": "You are building an app that will process incoming email and direct messages to either French or English language support teams. Which Azure Cognitive Services API should you use? To answer, select the appropriate options in the answer area.",
     "items": [
       {
         "text": "[answer choice 1]",
         "options": [
-          "V",
           "api.cognitive.microsofttranslator.com",
-          "/text/analytics/v3.1/entities/recognition/general",
           "eastus.api.cognitive.microsoft.com",
-          "/text/analytics/v3.1/languages",
           "portal.azure.com",
+        ],
+        "answer": "eastus.api.cognitive.microsoft.com"
+      },
+      {
+        "text": "[answer choice 2]",
+        "options": [
+          "/text/analytics/v3.1/entities/recognition/general",
+          "/text/analytics/v3.1/languages",
           "/translator/text/v3.0/translate?to=en",
           "/translator/text/v3.0/translate?to=fr"
         ],
-        "answer": "/text/analytics/v3.1/entities/recognition/general"
+        "answer": "/text/analytics/v3.1/languages"
       }
     ]
   },
@@ -360,7 +350,7 @@ const questions = [
     "id": 22,
     "type": "multiple_choice",
     "img": null,
-    "question": "Topic goals. Some question sets might have more than one correct solution, while others might not have a correct solution. After you answer a question in this section, you will NoT be able to return to it. As a result, these questions will not appear in the review screen. You have an Azure Cognitive Search service. During the past 12 months, query volume steadily increased. You discover that some search query requests to the Cognitive Search service are being throttled. You need to reduce the likelihood that search query requests are throttled. Solution: You add replicas. Does this meet the goal?",
+    "question": "NOTE: Some question sets might have more than one correct solution, while others might not have a correct solution. After you answer a question in this section, you will NoT be able to return to it. As a result, these questions will not appear in the review screen. You have an Azure Cognitive Search service. During the past 12 months, query volume steadily increased. You discover that some search query requests to the Cognitive Search service are being throttled. You need to reduce the likelihood that search query requests are throttled. Solution: You add replicas. Does this meet the goal?",
     "choices": {
       "A": "Yes",
       "B": "No"
@@ -369,31 +359,45 @@ const questions = [
   },
   {
     "id": 23,
-    "type": "UNKNOWN",
+    "type": "simulation",
     "img": null,
-    "prompt": "Topic (ou need to create a Text Analytics service named Text12345678, and then enable logging for Text12345678. The solution must ensure that any changes to Text12345678 will be stored in a Log Analytics workspace. To complete this task, siqn in to the Azure portal.",
-    "answer": null
+    "prompt": "SIMULATION: Topic (ou need to create a Text Analytics service named Text12345678, and then enable logging for Text12345678. The solution must ensure that any changes to Text12345678 will be stored in a Log Analytics workspace. To complete this task, siqn in to the Azure portal.",
+    "images": [
+        "/AI102_imgs/q33.1.png",
+        "/AI102_imgs/q33.2.png"
+    ]
   },
   {
     "id": 24,
-    "type": "UNKNOWN",
+    "type": "simulation",
     "img": null,
-    "prompt": "ou need to create a search service named search12345678 that will index a sample Azure Cosmos DB database named hotels-sample. The solution must ensure that only English language fields are retrievable. To complete this task, sign in to the Azure portal.",
-    "answer": null
+    "prompt": "SIMULATION: You need to create a search service named search12345678 that will index a sample Azure Cosmos DB database named hotels-sample. The solution must ensure that only English language fields are retrievable. To complete this task, sign in to the Azure portal.",
+    "images": [
+        "/AI102_imgs/q34.1.png",
+        "/AI102_imgs/q34.2.png",
+        "/AI102_imgs/q34.3.png"
+    ]
   },
   {
     "id": 25,
-    "type": "UNKNOWN",
+    "type": "simulation",
     "img": null,
-    "prompt": "You plan to create a solution to generate captions for images that will be read from Azure Blob Storage. You need to create a service in Azure Cognitive Services for the solution. The service must be named captions12345678 and must use the Free pricing tier. To complete this task, sign in to the Azure portal.",
-    "answer": null
+    "prompt": "SIMULATION: You plan to create a solution to generate captions for images that will be read from Azure Blob Storage. You need to create a service in Azure Cognitive Services for the solution. The service must be named captions12345678 and must use the Free pricing tier. To complete this task, sign in to the Azure portal.",
+    "images": [
+        "/AI102_imgs/q35.1.png",
+        "/AI102_imgs/q35.2.png",
+        "/AI102_imgs/q35.3.png"
+    ]
   },
   {
     "id": 26,
-    "type": "UNKNOWN",
+    "type": "simulation",
     "img": null,
-    "prompt": "You need to create a Form Recognizer resource named fr12345678. Jse the Form Recognizer sample labeling tool at https://fott-2-1.azurewebsites.net/ to analyze the invoice located in the C:\\Resources\\Invoices folder. Save the results as C:\\Resources\\Invoices\\Results.json. To complete this task, sign in to the Azure portal and open the Form Recognizer sample labeling tool.",
-    "answer": null
+    "prompt": "SIMULATION: You need to create a Form Recognizer resource named fr12345678. Jse the Form Recognizer sample labeling tool at https://fott-2-1.azurewebsites.net/ to analyze the invoice located in the C:\\Resources\\Invoices folder. Save the results as C:\\Resources\\Invoices\\Results.json. To complete this task, sign in to the Azure portal and open the Form Recognizer sample labeling tool.",
+    "images": [
+        "/AI102_imgs/q36.1.png",
+        "/AI102_imgs/q36.2.png"
+    ]
   },
   {
     "id": 27,
@@ -405,7 +409,7 @@ const questions = [
       "B": "Computer Vision",
       "C": "Azure Video Analyzer for Media (formerly Video Indexer)"
     },
-    "answer": "C"
+    "answer": "A"
   },
   {
     "id": 28,
@@ -422,45 +426,58 @@ const questions = [
   },
   {
     "id": 29,
-    "type": "UNKNOWN",
+    "type": "simulation",
     "img": null,
-    "prompt": "Use the following login credentials as needed: To enter your username, place your cursor in the Sign in box and click on the username below. To enter your password, place your cursor in the Enter password box and click on the password below. Azure Username: admin@abc.com - Azure Password: Xxxxxxxxxxxx - The following information is for technical support purposes only: Lab Instance: 12345678 - Task - You plan to build an API that will identify whether an image includes a Microsoft Surface Pro or Surface Studio. You need to deploy a service in Azure Cognitive Services for the APl. The service must be named AAA12345678 and must be in the East US Azure region. The solution nust use the Free pricing tier. To complete this task, sign in to the Azure portal.",
-    "answer": null
+    "prompt": "SIMULATION: Use the following login credentials as needed: To enter your username, place your cursor in the Sign in box and click on the username below. To enter your password, place your cursor in the Enter password box and click on the password below. Azure Username: admin@abc.com - Azure Password: Xxxxxxxxxxxx - The following information is for technical support purposes only: Lab Instance: 12345678 - Task - You plan to build an API that will identify whether an image includes a Microsoft Surface Pro or Surface Studio. You need to deploy a service in Azure Cognitive Services for the APl. The service must be named AAA12345678 and must be in the East US Azure region. The solution nust use the Free pricing tier. To complete this task, sign in to the Azure portal.",
+    "images": [
+        "/AI102_imgs/q39.1.png",
+        "/AI102_imgs/q39.2.png"
+    ]
   },
   {
     "id": 30,
-    "type": "UNKNOWN",
+    "type": "simulation",
     "img": null,
-    "prompt": "Use the following login credentials as needed: To enter your username, place your cursor in the Sign in box and click on the username below. To enter your password, place your cursor in the Enter password box and click on the password below. Azure Username: admin@abc.com - Azure Password: Xxxxxxxxxxxx - The following information is for technical support purposes only: Lab Instance: 12345678 - Task - You need to build an API that uses the service in Azure Cognitive Services named AAA12345678 to identify whether an image includes a Microsoft Surface Pro or Surface Studio. To achieve this goal, you must use the sample images in the C:\\Resources\\Images folder. To complete this task, sign in to the Azure portal.",
-    "answer": null
+    "prompt": "SIMULATION: Use the following login credentials as needed: To enter your username, place your cursor in the Sign in box and click on the username below. To enter your password, place your cursor in the Enter password box and click on the password below. Azure Username: admin@abc.com - Azure Password: Xxxxxxxxxxxx - The following information is for technical support purposes only: Lab Instance: 12345678 - Task - You need to build an API that uses the service in Azure Cognitive Services named AAA12345678 to identify whether an image includes a Microsoft Surface Pro or Surface Studio. To achieve this goal, you must use the sample images in the C:\\Resources\\Images folder. To complete this task, sign in to the Azure portal.",
+    "images": [
+        "/AI102_imgs/q40.png"
+    ]
   },
   {
     "id": 31,
-    "type": "UNKNOWN",
+    "type": "simulation",
     "img": null,
-    "prompt": "Jse the following login credentials as needed: To enter your username, place your cursor in the Sign in box and click on the username below. To enter your password, place your cursor in the Enter password box and click on the password below. Azure Username: admin@abc.com - Azure Password: Xxxxxxxxxxxx - The following information is for technical support purposes only: Lab Instance: 12345678 - [ask - You need to get insights from a video file located in the C:\\Resources\\Video\\Media.mp4 folder. Save the insights to the C:\\Resources\\Video\\Insights.json folder. o complete this task, sign in to the Azure Video Analyzer for Media at https://www.videoindexer.ai/ by using admin@abc.com",
-    "answer": null
+    "prompt": "SIMULATION: Use the following login credentials as needed: To enter your username, place your cursor in the Sign in box and click on the username below. To enter your password, place your cursor in the Enter password box and click on the password below. Azure Username: admin@abc.com - Azure Password: Xxxxxxxxxxxx - The following information is for technical support purposes only: Lab Instance: 12345678 - [ask - You need to get insights from a video file located in the C:\\Resources\\Video\\Media.mp4 folder. Save the insights to the C:\\Resources\\Video\\Insights.json folder. o complete this task, sign in to the Azure Video Analyzer for Media at https://www.videoindexer.ai/ by using admin@abc.com",
+    "images": [
+        "/AI102_imgs/q41.png"
+    ]
   },
   {
     "id": 32,
-    "type": "UNKNOWN",
+    "type": "simulation",
     "img": null,
-    "prompt": "Use the following login credentials as needed: To enter your username, place your cursor in the Sign in box and click on the username below. To enter your password, place your cursor in the Enter password box and click on the password below. Azure Username: admin@abc.com - Azure Password: Xxxxxxxxxxxx - The following information is for technical support purposes only: Lab Instance: 12345678 - Task - You plan to analyze stock photography and automatically generate captions for the images. You need to create a service in Azure to analyze the images. The service must be named caption12345678 and must be in the East US Azure region. The solution must ise the Free pricing tier. n the C:\\Resources\\Caption\\Params.json folder, enter the value for Key 1 and the endpoint for the new service. To complete this task, sign in to the Azure portal.",
-    "answer": null
+    "prompt": "SIMULATION: Use the following login credentials as needed: To enter your username, place your cursor in the Sign in box and click on the username below. To enter your password, place your cursor in the Enter password box and click on the password below. Azure Username: admin@abc.com - Azure Password: Xxxxxxxxxxxx - The following information is for technical support purposes only: Lab Instance: 12345678 - Task - You plan to analyze stock photography and automatically generate captions for the images. You need to create a service in Azure to analyze the images. The service must be named caption12345678 and must be in the East US Azure region. The solution must ise the Free pricing tier. n the C:\\Resources\\Caption\\Params.json folder, enter the value for Key 1 and the endpoint for the new service. To complete this task, sign in to the Azure portal.",
+    "images": [
+        "/AI102_imgs/q42.png"
+    ]
   },
   {
     "id": 33,
-    "type": "UNKNOWN",
+    "type": "simulation",
     "img": null,
-    "prompt": "Use the following login credentials as needed: To enter your username, place your cursor in the Sign in box and click on the username below. To enter your password, place your cursor in the Enter password box and click on the password below. Azure Username: admin@abc.com - Azure Password: xxxxxxxxxxxx - The following information is for technical support purposes only: Lab Instance: 12345678 - Task - You plan to build an application that will use caption12345678. The application will be deployed to a virtual network named VNet1. You need to ensure that only virtual machines on VNet1 can access caption12345678. To complete this task, sign in to the Azure portal.",
-    "answer": null
+    "prompt": "SIMULATION: Use the following login credentials as needed: To enter your username, place your cursor in the Sign in box and click on the username below. To enter your password, place your cursor in the Enter password box and click on the password below. Azure Username: admin@abc.com - Azure Password: xxxxxxxxxxxx - The following information is for technical support purposes only: Lab Instance: 12345678 - Task - You plan to build an application that will use caption12345678. The application will be deployed to a virtual network named VNet1. You need to ensure that only virtual machines on VNet1 can access caption12345678. To complete this task, sign in to the Azure portal.",
+    "images": [
+        "/AI102_imgs/q43.png"
+    ]
   },
   {
     "id": 34,
-    "type": "UNKNOWN",
+    "type": "simulation",
     "img": null,
-    "prompt": "Use the following login credentials as needed: To enter your username, place your cursor in the Sign in box and click on the username below. To enter your password, place your cursor in the Enter password box and click on the password below. Azure Username: admin@abc.com - Azure Password: Xxxxxxxxxxxx - The following information is for technical support purposes only: Lab Instance: 12345678 - Task - You need to ensure that a user named admin@abc.com can regenerate the subscription keys of AAA12345678. The solution must use the principle of least privilege. [o complete this task, sign in to the Azure portal.",
-    "answer": null
+    "prompt": "SIMULATION: Use the following login credentials as needed: To enter your username, place your cursor in the Sign in box and click on the username below. To enter your password, place your cursor in the Enter password box and click on the password below. Azure Username: admin@abc.com - Azure Password: Xxxxxxxxxxxx - The following information is for technical support purposes only: Lab Instance: 12345678 - Task - You need to ensure that a user named admin@abc.com can regenerate the subscription keys of AAA12345678. The solution must use the principle of least privilege. [o complete this task, sign in to the Azure portal.",
+    "images": [
+        "/AI102_imgs/q44.png"
+    ]
   },
   {
     "id": 35,
@@ -501,10 +518,9 @@ const questions = [
       "Create a new classification model."
     ],
     "answer_order": [
-      "Retrain the model.",
-      "Export the model. juilibojalboHighly Voted",
-      "I year, 7 months agc",
-      "The provided answer is correct. As reported here https:/learn.microsoft.com/en-us/azure/cognitive-services/Custom-Vision-Service/export- your-model the model must be retrained after changing the domain to compact"
+       "Change Domains to General (compact).",
+       "Retrain the model.",
+       "Export the model."
     ]
   },
   {
@@ -550,7 +566,7 @@ const questions = [
     "id": 41,
     "type": "multiple_choice",
     "img": null,
-    "question": "Topic You have an app named App1 that uses an Azure Cognitive Services model to identify anomalies in a time series data stream. You need to run App1 in a location that has limited connectivity. The solution must minimize costs. What should you use to host the model?",
+    "question": "You have an app named App1 that uses an Azure Cognitive Services model to identify anomalies in a time series data stream. You need to run App1 in a location that has limited connectivity. The solution must minimize costs. What should you use to host the model?",
     "choices": {
       "A": "Azure Kubernetes Service (AKS)",
       "B": "Azure Container Instances",
@@ -568,16 +584,20 @@ const questions = [
       {
         "text": "To prevent access from the internet:",
         "options": [
-          "To prevent access from the internet:",
           "Configure an IP firewall.",
           "Create a private endpoint.",
           "Use Azure roles.",
-          "To limit access to queries:",
+        ],
+        "answer": "Create a private endpoint."
+      },
+      {
+        "text": "To limit access to queries:",
+        "options": [
           "Create a private endpoint.",
           "Use Azure roles.",
           "Use key authentication."
         ],
-        "answer": "To limit access to queries:"
+        "answer": "Use Azure roles."
       }
     ]
   },
@@ -602,39 +622,42 @@ const questions = [
       "Run the container and specify an App ID and Client Secret.",
       "Provision an on-premises Kubernetes cluster that is isolated from the internet.",
       "Pull an image from the Microsoft Container Registry (MCR).",
-      "Run the container and specify an APl key and the Endpoint URL of the Cognitive Services",
-      "resource.",
+      "Run the container and specify an APl key and the Endpoint URL of the Cognitive Services resource.",
       "Provision an on-premises Kubernetes cluster that has internet connectivity.",
       "Pull an image from Docker Hub.",
       "Provision an Azure Kubernetes Service (AKS) resource."
     ],
     "answer_order": [
-      "Provision an on-premnises Kubernetes cluster that is isolated from the internet.",
-      "Run the container and specify an APl key and the Endpoint URL of the Cogritive Services",
-      "CHUEY"
+      "Provision an on-premises Kubernetes cluster that has internet connectivity.",
+      "Pull an image from the Microsoft Container Registry (MCR).",
+      "Run the container and specify an APl key and the Endpoint URL of the Cognitive Services resource."
     ]
   },
   {
     "id": 45,
     "type": "hotspot_dropdown",
-    "img": null,
+    "img": "/AI102_imgs/q55.png",
     "prompt": "You have an Azure subscription that has the following configurations: • Subscription ID: 8d3591aa-96b8-4737-ad09-00f9b1ed35ad • Tenant ID: 3edfe572-cb54-3ced-ae12-c5c177f39a12 You plan to create a resource that will perform sentiment analysis and optical character recognition (OCR). You need to use an HTTP request to create the resource in the subscription. The solution must use a single key and endpoint. How should you complete the request? To answer, select the appropriate options in the answer area.",
     "items": [
       {
-        "text": "[answer choice]",
+        "text": "[answer choice 1]",
         "options": [
-          "/resourceGroups/ocRProject/provIders/",
           "subscriptions/3edfe572-cb54-3ced-ae12-c5c177f39a12",
           "subscriptions/8d3591aa-96b8-4737-ad09-00r9b1ed35ad",
           "tenant/3edfe572-cb54-3ced-ae12-c5c177f39a12",
           "tenant/8d3591aa-96b8-4737-ad09-00f9b1ed35ad",
-          "/accounts/c51?api-version-2021-10-01",
+        ],
+        "answer": "subscriptions/8d3591aa-96b8-4737-ad09-00r9b1ed35ad"
+      },
+      {
+        "text": "[answer choice 2]",
+        "options": [
           "Microsoft.ApiManagement",
           "Microsoft.CognitiveServices",
           "Microsoft.ContainerService",
           "Microsoft.KeyVault"
         ],
-        "answer": "tenant/8d3591aa-96b8-4737-ad09-00f9b1ed35ad"
+        "answer": "Microsoft.CognitiveServices"
       }
     ]
   },
@@ -670,10 +693,31 @@ const questions = [
   },
   {
     "id": 48,
-    "type": "UNKNOWN",
-    "img": null,
-    "prompt": "You need to ensure that the resource can respond to 600 requests per minute. How should you complete the template? To answer, select the appropriate options in the answer area. { \"type\": \"Microsoft.CognitiveServices/accounts/deployments\", \"apiVersion\": \"2023-05-01\", \"name\": \"arm-aoai-sample-resource/arm-je-std-deployment\", \"dependsOn\": [ \"[resourceId('Microsoft.CognitiveServices/accounts', 'arm-aoai-sample-resource')]\" ], \"sku\": { \"name\": \"Standard\", •• \"capacity\" \"count\" \"maxValue\" \"size\" }, \"properties\": { \"model\": { \"format\": \"OpenAI\", }",
-    "answer": null
+    "type": "hotspot_dropdown",
+    "img": "/AI102_imgs/q58.png",
+    "prompt": "You need to ensure that the resource can respond to 600 requests per minute. How should you complete the template? To answer, select the appropriate options in the answer area.",
+    "items": [
+      {
+        "text": "[answer choice 1]",
+        "options": [
+          "capacity",
+          "count",
+          "maxValue",
+          "size",
+        ],
+        "answer": "capacity"
+      },
+      {
+        "text": "[answer choice 2]",
+        "options": [
+          "1",
+          "60",
+          "100",
+          "600"
+        ],
+        "answer": "100"
+      }
+    ]
   },
   {
     "id": 49,
@@ -689,9 +733,9 @@ const questions = [
       "Deploy a Docker container to an Azure container instance."
     ],
     "answer_order": [
-      "Provisin the Language service resource in Azure.",
-      "Rune cnaie uy he picin",
-      "NullVoider_0"
+      "Provision the Language service resource in Azure.",
+      "Deploy a Docker container to an on-premises server.",
+      "Run the container and query the prediction endpoint."
     ]
   },
   {
@@ -703,17 +747,22 @@ const questions = [
       {
         "text": "Provide access to Al1 by using:",
         "options": [
-          "Provide access to Al1 by using:",
           "An API key",
           "A bearer token",
           "A shared access signature (SAS) token",
+        ],
+        "answer": "An API key"
+      },
+      {
+        "text": "Connect to the deployment by using:",
+        "options": [
           "Connect to the deployment by using:",
           "An API key",
           "A deployment endpoint",
           "A deployment name",
           "A deployment type"
         ],
-        "answer": "Connect to the deployment by using:"
+        "answer": "A deployment name"
       }
     ]
   },
@@ -772,22 +821,28 @@ const questions = [
   {
     "id": 55,
     "type": "hotspot_dropdown",
-    "img": null,
+    "img": "/AI102_imgs/q65.png",
     "prompt": "You plan to deploy a containerized version of an Azure Cognitive Services service that will be used for sentiment analysis. You configure https://contoso.cognitiveservices.azure.com as the endpoint URI for the service. You need to run the container on an Azure virtual machine by using Docker. How should you complete the command? To answer, select the appropriate options in the answer area.",
     "items": [
       {
-        "text": "[answer choice]",
+        "text": "[answer choice 1]",
         "options": [
-          "docker run --rm -it -p 5000:5000 --memory 8g --cpus 1 \\",
+          "http://contoso.blob.core.windows.net",
+          "https://contoso.cognitiveservices.azre.com",
           "mcr.microsoft.com/azure-cognitive-services/textanalytics/keyphrase",
           "mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment",
-          "Eula=accept|",
-          "Billing=",
-          "mcr.microsoft.com/azure-cognitive-services/textanalytics/keyphrase",
-          "mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment",
-          "ApiKey=xxxxxxxxxxxxxxxxxxx"
         ],
-        "answer": "Eula=accept\\"
+        "answer": "mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment"
+      },
+      {
+        "text": "[answer choice 2]",
+        "options": [
+          "http://contoso.blob.core.windows.net",
+          "https://contoso.cognitiveservices.azre.com",
+          "mcr.microsoft.com/azure-cognitive-services/textanalytics/keyphrase",
+          "mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment",
+        ],
+        "answer": "https://contoso.cognitiveservices.azre.com"
       }
     ]
   },
@@ -795,7 +850,7 @@ const questions = [
     "id": 56,
     "type": "multiple_choice",
     "img": null,
-    "question": "O You are developing a system that will monitor temperature data from a data stream. The system must generate an alert in response to atypical values. The solution mus minimize development effort. What should you include in the solution?",
+    "question": "You are developing a system that will monitor temperature data from a data stream. The system must generate an alert in response to atypical values. The solution mus minimize development effort. What should you include in the solution?",
     "choices": {
       "A": "Multivariate Anomaly Detection",
       "B": "Azure Stream Analytics",
@@ -808,7 +863,7 @@ const questions = [
     "id": 57,
     "type": "multiple_choice",
     "img": null,
-    "question": "You have a Microsoft OneDrive folder that contains a 20-GB video file named File1 .avi. You need to index File1.avi by using the Azure Video Indexer website. Vhat should you do?",
+    "question": "You have a Microsoft OneDrive folder that contains a 20-GB video file named File1 .avi. You need to index File1.avi by using the Azure Video Indexer website. What should you do?",
     "choices": {
       "A": "Upload File1 .avi to the www.youtube.com webpage, and then copy the URL of the video to the Azure AI Video Indexer website.",
       "B": "Download File1.avi to a local computer, and then upload the file to the Azure Al Video Indexer website.",

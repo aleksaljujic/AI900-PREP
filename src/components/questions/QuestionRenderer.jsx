@@ -5,9 +5,14 @@ import SingleSelectQuestion from './SingleSelectQuestion';
 import MultiSelectQuestion from './MultiSelectQuestion';
 import DragDropQuestion from './DragDropQuestion';
 import DragDropOrderQuestion from './DragDropOrderQuestion';
+import SimulationQuestion from './SimulationQuestion';
 
 export default function QuestionRenderer({ question, selected, onSelect, feedback, disabled }) {
   const type = question.type;
+
+  if (type === 'simulation') {
+    return <SimulationQuestion question={question} />;
+  }
 
   const renderers = {
     multiple_choice: MultipleChoiceQuestion,
@@ -27,7 +32,6 @@ export default function QuestionRenderer({ question, selected, onSelect, feedbac
 
   return (
     <div className="space-y-4">
-      {/* Display image if present */}
       {question.img && question.img !== 'null' && (
         <div className="rounded-2xl bg-slate-100 p-4 dark:bg-slate-800">
           <img
