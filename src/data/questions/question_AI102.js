@@ -1093,8 +1093,648 @@ const questions = [
           "Identity document (ID)"
         ],
         "answer": "Custom neural"
+      },
+    ]
+  },
+  {
+    "id": 72,
+    "type": "hotspot_yes_no",
+    "img": "/AI102_imgs/t2q1.png",
+    "prompt": "You are developing an application that wil use the Computer Vision client ibrary. The application has the following code. For each of the following statements, select Yes if the statement is true. Otherwise, select No. OTE: Each correct selection is worth one point. Statements Yes No The code will perform face recognition. The code will list tags and their associated confidence. O The code will read a file from the local file system.",
+    "statements": [
+      {
+        "text": "The code will perform face recognition.",
+        "answer": "No"
+      },
+      {
+        "text": "The code will list tags and their associated confidence.",
+        "answer": "Yes"
+      },
+      {
+        "text": "The code will read a file from the local file system.",
+        "answer": "No"
       }
     ]
+  },
+  {
+    "id": 73,
+    "type": "multiple_choice_multi_select",
+    "img": "/AI102_imgs/t2q2.png",
+    "question": "You are developing a method that uses the Computer Vision client library. The method will perform optical character recognition (OcR) in images. The method has the following code. During testing you discover that the callto the GetReadResultAsync method occurs before the read operation is complete. You need to prevent the GetReadResultAsync method from proceeding until the read operation is complete. Which two actions should you perform? Each correct answer presents part of the solution.",
+    "choices": {
+      "A": "Remove the Guid. Parse(operationld) parameter.",
+      "B": "Add code to verify the results. Status value.",
+      "C": "Add code to verify the status of the txtHeaders. Status value.",
+      "D": "Wrap the call to GetReadResultAsync within a loop that contains a delay."
+    },
+    "answer": [
+      "B",
+      "D"
+    ]
+  },
+  {
+    "id": 74,
+    "type": "hotspot_dropdown",
+    "img": "/AI102_imgs/t2q3.png",
+    "prompt": "You have a Computer Vision resource named contoso1 that is hosted in the West US Azure region. ou need to use contoso1 to make a different size of a product photo by using the smart cropping feature. low should you complete the API URL? To answer, select the appropriate options in the answer area.",
+    "items": [
+      {
+        "text": "[answer choice 1]",
+        "options": [
+          "https://api.projectoxford.ai",
+          "https://contoso1.cognitiveservices.azure.com",
+          "https:/westus.api.cognitive.microsoft.com"
+        ],
+        "answer": "https:/westus.api.cognitive.microsoft.com"
+      },
+      {
+        "text": "[answer choice 2]",
+        "options": [
+          "areaOflnterest",
+          "detect",
+          "generateThumbnail"
+        ],
+        "answer": "areaOflnterest"
+      }
+    ]
+  },
+  {
+    "id": 75,
+    "type": "drag_and_drop",
+    "img": "/AI102_imgs/t2q4.png",
+    "prompt": "You are developing a webpage that will use the Azure Video Analyzer for Media (previously Video Indexer) service to display videos of internal company meetings. You embed the Player widget and the Cognitive Insights widget into the page. You need to configure the widgets to meet the following requirements: Ensure that users can search for keywords. Display the names and faces of people in the video. Show captions in the video in English (United States). How should you complete the URL for each widget? To answer, drag the appropriate values to the correct targets. Each value may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.",
+    "choices_pool": [
+      "en-Us",
+      "false",
+      "people.keywords",
+      "people.search",
+      "search",
+      "true"
+    ],
+    "targets": [
+      {
+        "text": "choice 1",
+        "answer": "people.keywords"
+      },
+      {
+        "text": "choice 2",
+        "answer": "search"
+      },
+      {
+        "text": "choice 3",
+        "answer": "true"
+      },
+      {
+        "text": "choice 4",
+        "answer": "en-Us"
+      }
+    ]
+  },
+  {
+    "id": 76,
+    "type": "drag_and_drop_order",
+    "img": null,
+    "prompt": "You train a Custom Vision model to identify a company's products by using the Retail domain. You plan to deploy the model as part of an app for Android phones. You need to prepare the model for deployment. Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order. elect and Place:",
+    "choices_pool": [
+      "Change the model domain.",
+      "Retrain the model.",
+      "Test the model.",
+      "Export the model."
+    ],
+    "answer_order": [
+      "Change the model domain.",
+      "Retrain the model.",
+      "Export the model."
+    ]
+  },
+  {
+    "id": 77,
+    "type": "hotspot_yes_no",
+    "img": "/AI102_imgs/t2q6.png",
+    "prompt": "You are developing an application to recognize employees' faces by using the Face Recognition APl. Images of the faces will be accessible from a URl endpoint. The application has the following code. For each of the following statements, select Yes if the statement is true. Otherwise, select No. Statements Yes No The code will add a face image to a person object in a person group. The code will work for up to 10,000 people. add face can be called multiple times to add multiple face images to a person object.",
+    "statements": [
+      {
+        "text": "The code will add a face image to a person object in a person group.",
+        "answer": "Yes"
+      },
+      {
+        "text": "The code will work for up to 10,000 people.",
+        "answer": "Yes"
+      },
+      {
+        "text": "add face can be called multiple times to add multiple face images to a person object.",
+        "answer": "Yes"
+      }
+    ]
+  },
+  {
+    "id": 78,
+    "type": "drag_and_drop_order",
+    "img": null,
+    "prompt": "You have a Custom Vision resource named acvdev in a development environment. You have a Custom Vision resource named acvprod in a production environment. n acvdev, you build an object detection model named obj1 in a project named proj1. ou need to move obj1 to acvprod. Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct rder. lect and Place:",
+    "choices_pool": [
+      "Use the ExportProject endpoint on acvdev.",
+      "Use the GetProjects endpoint on acvdev.",
+      "Use the ImportProject endpoint on acvprod.",
+      "Use the ExportIteration endpoint on acvdev.",
+      "Use the GetIterations endpoint on acvdev.",
+      "Use the UpdateProject endpoint on acvprod."
+    ],
+    "answer_order": [
+      "Use the GetProjects endpoint on acvdev.",
+      "Use the ExportProject endpoint on acvdev.",
+      "Use the ImportProject endpoint on acvprod."
+    ]
+  },
+  {
+    "id": 79,
+    "type": "drag_and_drop_order",
+    "img": null,
+    "prompt": "You are developing an application that will recognize faults in components produced on a factory production line. The components are specific to your business. You need to use the Custom Vision API to help detect common faults. Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order. elect and Place:",
+    "choices_pool": [
+      "Train the classifier model.",
+      "Upload and tag images.",
+      "Initialize the training dataset.",
+      "Train the object detection model.",
+      "Create a project."
+    ],
+    "answer_order": [
+      "Create a project.",
+      "Upload and tag the images.",
+      "Train the classifier model."
+    ]
+  },
+  {
+    "id": 80,
+    "type": "hotspot_dropdown",
+    "img": null,
+    "prompt": "You are building a model that will be used in an iOS app. You have images of cats and dogs. Each image contains either a cat or a dog. You need to use the Custom Vision service to detect whether the images is of a cat or a dog. How should you configure the project in the Custom Vision portal? To answer, select the appropriate options in the answer area.",
+    "items": [
+      {
+        "text": "[answer choice 1]",
+        "options": [
+          "Object Detection",
+          "Classification Types:"
+        ],
+        "answer": "Classification"
+      },
+      {
+        "text": "[answer choice 2]",
+        "options": [
+          "Multilabel (Single tag per image)",
+          "Multilabel (Multiple tags per image)"
+        ],
+        "answer": "Multilabel (Single tag per image)"
+      },
+      {
+        "text": "[answer choice 3]",
+        "options": [
+          "Audit",
+          "Food",
+          "General",
+          "General (compact)",
+          "Landmarks",
+          "Landmarks (compact)",
+          "Retail",
+          "Retail (compact)"
+        ],
+        "answer": "General"
+      }
+    ]
+  },
+  {
+    "id": 91,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You need to build a solution that will use optical character recognition (OCR) to scan sensitive documents by using the Computer Vision APl. The solution must NOT be deployed to the public cloud. What should you do?",
+    "choices": {
+      "A": "Build an on-premises web app to query the Computer Vision endpoint.",
+      "B": "Host the Computer Vision endpoint in a container on an on-premises server.",
+      "C": "Host an exported Open Neural Network Exchange (ONNX) model on an on-premises server.",
+      "D": "Build an Azure web app to query the Computer Vision endpoint."
+    },
+    "answer": "B"
+  },
+  {
+    "id": 92,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You have an Azure Cognitive Search solution and a collection of handwritten letters stored as JPEG files. You plan to index the collection. The solution must ensure that queries can be performed on the contents of the letters. ou need to create an indexer that has a skillset. Which skill should you include?",
+    "choices": {
+      "A": "image analysis",
+      "B": "optical character recognition (OCR)",
+      "C": "key phrase extraction",
+      "D": "document extraction"
+    },
+    "answer": "B"
+  },
+  {
+    "id": 93,
+    "type": "hotspot_dropdown",
+    "img": null,
+    "prompt": "You have a library that contains thousands of images. You need to tag the images as photographs, drawings, or clipart. Which service endpoint and response property should you use? To answer, select the appropriate options in the answer area.",
+    "items": [
+      {
+        "text": "Service endpoint: [choice 1]",
+        "options": [
+          "Computer Vision analyze images",
+          "Computer Vision object detection",
+          "Custom Vision image classification",
+          "Custom Vision object detection"
+        ],
+        "answer": "Computer Vision analyze images"
+      },
+      {
+        "text": "Property: [choice 2]",
+        "options": [
+          "categories",
+          "description",
+          "imageType",
+          "metadata",
+          "objects"
+        ],
+        "answer": "imageType"
+      }
+    ]
+  },
+  {
+    "id": 94,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You have an app that captures live video of exam candidates. You need to use the Face service to validate that the subjects of the videos are real people. What should you do?",
+    "choices": {
+      "A": "Call the face detection APl and retrieve the face rectangle by using the FaceRectangle attribute.",
+      "B": "Call the face detection API repeatedly and check for changes to the FaceAttributes. HeadPose attribute.",
+      "C": "Call the face detection API and use the FaceLandmarks attribute to calculate the distance between pupils.",
+      "D": "Call the face detection API repeatedly and check for changes to the FaceAttributes.Accessories attribute."
+    },
+    "answer": "B"
+  },
+  {
+    "id": 95,
+    "type": "hotspot_dropdown",
+    "img": "/AI102_imgs/t2q24.png",
+    "prompt": "Use the drop-down menus to select the answer choice that completes each statement based on the information presented in teh graphic.",
+    "items": [
+      {
+        "text": "[choice 1]",
+        "options": [
+          "detects",
+          "finds similar",
+          "recognizes",
+          "verifies"
+        ],
+        "answer": "detects"
+      },
+      {
+        "text": "[choice 2]",
+        "options": [
+          "118, 754",
+          "497, 191",
+          "797, 201",
+          "1167,249"
+        ],
+        "answer": "797, 201"
+      }
+    ]
+  },
+  {
+    "id": 96,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You have an Azure subscription that contains an Al enrichment pipeline in Azure Cognitive Search and an Azure Storage account that has 10 GB of scanned documents and images. You need to index the documents and images in the storage account. The solution must minimize how long it takes to build the index. What should you do?",
+    "choices": {
+      "A": "From the Azure portal, configure parallel indexing.",
+      "B": "From the Azure portal, configure scheduled indexing.",
+      "C": "Configure field mappings by using the REST API.",
+      "D": "Create a text-based indexer by usinq the REST API."
+    },
+    "answer": "A"
+  },
+  {
+    "id": 97,
+    "type": "drag_and_drop_order",
+    "img": null,
+    "prompt": "You need to analyze video content to identify any mentions of specific company names. Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the corred order.",
+    "choices_pool": [
+      "Add the specific company names to the exclude list",
+      "Add the specific company names to the include list",
+      "From Content model customization, select Language",
+      "Sign in to the Custom Vision website",
+      "Sign in to the Azure Video Analyzer for Media website",
+      "From Content model customization, select Brands"
+    ],
+    "answer_order": [
+      "Sign in to Azure Video Analyzer for Media website",
+      "From Content model customization, select Brands",
+      "Add the specific company names to the include list"
+    ]
+  },
+  {
+    "id": 98,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You have a mobile app that manages printed forms. You need the app to send images of the forms directly to Forms Recognizer to extract relevant information. For compliance reasons, the image files must not be stored in the cloud. In which format should you send the images to the Form Recognizer APl endpoint?",
+    "choices": {
+      "A": "raw image binary",
+      "B": "form URL encoded",
+      "C": "JSON"
+    },
+    "answer": "A"
+  },
+  {
+    "id": 99,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You plan to build an app that will generate a list of tags for uploaded images. The app must meet the following requirements: • Generate tags in a user's preferred language. • Support English, French, and Spanish. • Minimize development effort. You need to build a function that will generate the tags for the app. Which Azure service endpoint should you use?",
+    "choices": {
+      "A": "Content Moderator Image Moderation",
+      "B": "Custom Vision image classification",
+      "C": "Computer Vision Image Analysis",
+      "D": "Custom Translator"
+    },
+    "answer": "C"
+  },
+  {
+    "id": 100,
+    "type": "hotspot_yes_no",
+    "img": "/AI102_imgs/t2q29.png",
+    "prompt": "You developa test method t verify he results retrieved from a call t the Computer Vision APl. The call is used o analyze the existence company logos inmaes. The call returns a collection of brands named brands. You have the following code segment, For each of the following statements, select Yes if the statement is true. Otherwise, select No. Statements:",
+    "statements": [
+      {
+        "text": "The code will display the name of each detected brand with a confidence equal to or higher than 75 percent.",
+        "answer": "Yes"
+      },
+      {
+        "text": "The code will display coordinates for the top-left corner of the rectangle that contains the brand logo of the displayed brands.",
+        "answer": "Yes"
+      },
+      {
+        "text": "The code will display coordinates for the bottom-right corner of the rectangle that contains the brand logo of the displayed brands.",
+        "answer": "No"
+      }
+    ]
+  },
+  {
+    "id": 101,
+    "type": "drag_and_drop",
+    "img": null,
+    "prompt": "You have a factory that produces cardboard packaging for food products. The factory has intermittent internet connectivity. The packages are required to include four samples of each product. You need to build a Custom Vision model that willidentify defects in packaging and provide the location of the defects to an operator. The model must ensure that each package contains the four products. Which project type and domain should you use? To answer, drag the appropriate options to the correct targets. Each option may be used once, more than once, or not at all. You may need to drag the split bar between panes or scrollto view content.",
+    "answer": "Options Food General Project type: General (compact) Domain: Image classification Logo Object detection",
+    "choices_pool": [
+      "Food",
+      "General",
+      "General (compact)",
+      "Image classification",
+      "Logo",
+      "Object detection"
+    ],
+    "targets": [
+      {
+        "text": "Project type: [choice 1]",
+        "answer": "Object detection"
+      },
+      {
+        "text": "Domain: [choice 2]",
+        "answer": "General (compact)"
+      }
+    ]
+  },
+  {
+    "id": 102,
+    "type": "drag_and_drop",
+    "img": "/AI102_imgs/t2q31.png",
+    "prompt": "The performance of the model based on training data is shown in the following exhibit. Use the drop-down menus to select the answer choice that completes each statement based on the information presented in the graphic. The percentage of false positives is [answer cholce] The value for the number of true positives divided by the total number of true positives and false negatives is [answer choice]%.",
+    "choices_pool": [
+      "0",
+      "25",
+      "30",
+      "50",
+      "100"
+    ],
+    "targets": [
+      {
+        "text": "[choice 1]",
+        "answer": "0"
+      },
+      {
+        "text": "[choice 2]",
+        "answer": "25"
+      }
+    ]
+  },
+  {
+    "id": 103,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You are building an app that willinclude one million scanned magazine articles. Each article will be stored as an image file. You need to configure the app to extract text from the images. The solution must minimize development effort. What should you include in the solution?",
+    "choices": {
+      "A": "Computer Vision Image Analysis",
+      "B": "the Read APl in Computer Vision",
+      "C": "Form Recognizer",
+      "D": "Azure Cognitive Service for Language"
+    },
+    "answer": "B"
+  },
+  {
+    "id": 104,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You have a 20-GB video file named File1.avi that is stored on a local drive. You need to index File1.avi by using the Azure Video Indexer website. What should you do first?",
+    "choices": {
+      "A": "Upload File1. avi to an Azure Storage queue.",
+      "B": "Upload File1 .avi to the Azure Video Indexer website.",
+      "C": "Upload File1.avi to Microsoft OneDrive.",
+      "D": "Upload File1. avi to the www.youtube. com webpage."
+    },
+    "answer": "C"
+  },
+  {
+    "id": 105,
+    "type": "hotspot_dropdown",
+    "img": "needed",
+    "prompt": "You are building an app that will share user images. You need to configure the app to meet the following requirements: • Uploaded images must be scanned and any text must be extracted from the images. • Extracted text must be analyzed for the presence of profane language. • The solution must minimize development effort. What should you use for each requirement? To answer, select the appropriate options in the answer area. ",
+    "items": [
+      {
+        "text": "[choice 1]",
+        "options": [
+          "Azure Al Language",
+          "Azure Al Computer Vision",
+          "Content Moderator",
+          "Azure Al Custiom Vision",
+          "Azure Al Document Intelligence"
+        ],
+        "answer": "Azure Al Computer Vision"
+      },
+      {
+        "text": "[choice 2]",
+        "options": [
+          "Azure Al Language",
+          "Azure Al Computer Vision",
+          "Content Moderator",
+          "Azure Al Custiom Vision",
+          "Azure Al Document Intelligence"
+        ],
+        "answer": "Content Moderator"
+      }
+    ]
+  },
+  {
+    "id": 106,
+    "type": "multiple_choice_multi_select",
+    "img": null,
+    "question": "You are building an app that will share user images. You need to configure the app to perform the following actions when a user uploads an image: •Categorize the image as either a photograph or a drawing. •Generate a caption for the image. The solution must minimize development effort. Which two services should you include in the solution? Each correct answer presents part of the solution.",
+    "choices": {
+      "A": "object detection in Azure Al Computer Vision",
+      "B": "content tags in Azure Al Computer Vision",
+      "C": "image descriptions in Azure Al Computer Vision",
+      "D": "image type detection in Azure Al Computer Vision",
+      "E": "image classification in Azure Al Custom Vision"
+    },
+    "answer": [
+      "C",
+      "D"
+    ]
+  },
+  {
+    "id": 107,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You are building an app that will use the Azure Al Video Indexer service. You plan to train a language model to recognize industry-specific terms. You need to upload a file that contains the industry-specific terms. Which file format should you use?",
+    "choices": {
+      "A": "XML",
+      "B": "TXT",
+      "C": "XLS",
+      "D": "PDF"
+    },
+    "answer": "B"
+  },
+  {
+    "id": 108,
+    "type": "drag_and_drop_order",
+    "img": null,
+    "prompt": "You have an app that uses Azure Al and a custom trained classifier to identify products in images. You need to add new products to the classifier. The solution must meet the following requirements: Minimize how long it takes to add the products. Minimize development effort. Witch five actions should you perform in sequence?",
+    "choices_pool": [
+      "Label the sample images.",
+      "From Vision Studio, open the project.",
+      "Publish the model.",
+      "From the Custom Vision portal, open the project",
+      "Retrain the model.",
+      "Upload sample images of the new products.",
+      "From the Azure Machine Learning studio, open the workspace."
+    ],
+    "answer_order": [
+      "From Vision Studio, open the project.",
+      "Upload sample images of the new products.",
+      "Label the sample images.",
+      "Retrain the model.",
+      "Publish the model."
+    ]
+  },
+  {
+    "id": 109,
+    "type": "hotspot_yes_no",
+    "img": "/AI102_imgs/t2q38.png",
+    "prompt": "You are developing an application that will use the Azure AI Vision client library. The application has the following code. For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "statements": [
+      {
+        "text": "The code will perform face recognition.",
+        "answer": "No"
+      },
+      {
+        "text": "The code will list tags and their associated confidence.",
+        "answer": "Yes"
+      },
+      {
+        "text": "The code will read a file from the local file system.",
+        "answer": "Yes"
+      }
+    ]
+  },
+  {
+    "id": 110,
+    "type": "multiple_choice_multi_select",
+    "img": "/AI102_imgs/t2q39.png",
+    "question": "You are developing a method that uses the Azure Al Vision client library. The method wil perform optical character recognition (ocR) in images. The method has the following code. During testing, you discover that the call to the get_read_result method occurs before the read operation is complete. You need to prevent the get_read_result method from proceeding until the read operation is complete. Which two actions should you perform? Each correct answer presents part of the solution.",
+    "choices": {
+      "A": "Remove the operation_id parameter.",
+      "B": "Add code to verify the read_results.status value.",
+      "C": "Add code to verify the status of the read_operation_location value.",
+      "D": "Wrap the call to get_read_result within a loop that contains a delay."
+    },
+    "answer": [
+      "B",
+      "D"
+    ]
+  },
+  {
+    "id": 111,
+    "type": "hotspot_dropdown",
+    "img": "/AI102_imgs/t2q40.png",
+    "prompt": "You are developing an app that will use the Azure Al Vision API to analyze an image. You need configure the request that willbe used by the app to identify whether an image is clipart or a line drawing. How should you complete the request? To answer, select the appropriate options in the answer area.",
+    "items": [
+      {
+        "text": "[answer choice 1]",
+        "options": [
+          "GET",
+          "PATCH",
+          "POST"
+        ],
+        "answer": "POST"
+      },
+      {
+        "text": "[answer choice 2]",
+        "options": [
+          "description",
+          "imageType",
+          "objects",
+          "tags"
+        ],
+        "answer": "imageType"
+      }
+    ]
+  },
+  {
+    "id": 112,
+    "type": "hotspot_dropdown",
+    "img": "/AI102_imgs/t2q41.png",
+    "prompt": "You have an Azure subscription that contains an Azure Al Video Indexer account. ou need to add a custom brand and logo to the indexer and configure an exclusion for the custom brand. Iow should you complete the REST API call? To answer, select the appropriate options in the answer area.",
+    "items": [
+      {
+        "text": "[answer choice 1]",
+        "options": [
+          "enabled",
+          "state",
+          "tags",
+          "useBuiltin"
+        ],
+        "answer": "tags"
+      },
+      {
+        "text": "[answer choice 2]",
+        "options": [
+          "[\"Excluded\"]",
+          "[\"Included\"]",
+          "false",
+          "true"
+        ],
+        "answer": "[\"Excluded\"]"
+      }
+    ]
+  },
+  {
+    "id": 113,
+    "type": "multiple_choice",
+    "img": "/AI102_imgs/t2q42.png",
+    "question": "You have a local folder that contains the files shown in the following table. You need to analyze the files by using Azure Al Video Indexer. Which files can you upload to the Video Indexer website?",
+    "choices": {
+      "A": "File1 and File3 only",
+      "B": "File1, File2, File3 and File4",
+      "C": "File1, File2, and File3 only",
+      "D": "File1 and File2 only",
+      "E": "File1, File2, and File4 only"
+    },
+    "answer": "B"
   }
 ]
 

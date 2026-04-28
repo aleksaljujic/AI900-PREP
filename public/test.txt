@@ -7,7 +7,7 @@ Sva hotspot_dropdown pitanja su lose formatirana, kad imaju dva dropdowna uvek s
 
 Sva pitanja treba formatirati lepse
 
-Dodati slike pitanjima ged nedostaje
+Dodati slike pitanjima gde nedostaje
 
 Ubaciti pitanja od 10-20 sto fale kao i 71 pitanje
 
