@@ -143,6 +143,8 @@ const questions = [
         "options": [
           "http://contoso.blob.core.windows.net",
           "https://contoso.cognitiveservices.azure.com",
+          "mcr.microsoft.com/azure-cognitive-services/textanalytics/keyphrase",
+          "mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment",
         ],
         "answer": "mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment"
       },
@@ -914,6 +916,185 @@ const questions = [
       "D": "az account list"
     },
     "answer": "C"
+  },
+  {
+    "id": 61,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You successfully run the following HTTP request.\n\nPOST https://management.azure.com/subscriptions/18c51a87-3a69-47a8-aedc-a54745f708a1/resourceGroups/RG1/providers/Microsoft.CognitiveServices/accounts/contoso1/regenerateKey?api-version=2017-04-18\nBody{\"keyName\": \"Key2\"}\n\nWhat is the result of the request?",
+    "choices": {
+      "A": "A key for Azure Cognitive Services was generated in Azure Key Vault.",
+      "B": "A new query key was generated.",
+      "C": "The primary subscription key and the secondary subscription key were rotated.",
+      "D": "The secondary subscription key was reset."
+    },
+    "answer": "D"
+  },
+  {
+    "id": 62,
+    "type": "multiple_choice_multi_select",
+    "img": "/AI102_imgs/q11.png",
+    "question": "You build a custom Form Recognizer model.\n\nYou receive sample files to use for training the model as shown in the following table. Which three files can you use to train the model? Each correct answer presents a complete solution.\n\nNOTE: Each correct selection is worth one point.",
+    "choices": {
+      "A": "File1",
+      "B": "File2",
+      "C": "File3",
+      "D": "File4",
+      "E": "File5",
+      "F": "File6"
+    },
+    "answer": ["A", "C", "F"]
+  },
+  {
+    "id": 63,
+    "type": "multiple_choice_multi_select",
+    "img": null,
+    "question": "A customer uses Azure Cognitive Search.\n\nThe customer plans to enable a server-side encryption and use customer-managed keys (CMK) stored in Azure.\n\nWhat are three implications of the planned change? Each correct answer presents a complete solution.",
+    "choices": {
+      "A": "The index size will increase.",
+      "B": "Query times will increase.",
+      "C": "A self-signed X.509 certificate is required.",
+      "D": "The index size will decrease.",
+      "E": "Query times will decrease.",
+      "F": "Azure Key Vault is required."
+    },
+    "answer": ["A", "B", "F"]
+  },
+  {
+    "id": 64,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You are developing a new sales system that will process the video and text from a public-facing website.\n\nYou plan to notify users that their data has been processed by the sales system.\n\nWhich responsible AI principle does this help meet?",
+    "choices": {
+      "A": "transparency",
+      "B": "fairness",
+      "C": "inclusiveness",
+      "D": "reliability and safety"
+    },
+    "answer": "A"
+  },
+  {
+    "id": 65,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.\n\nAfter you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.\n\nYou create a web app named app1 that runs on an Azure virtual machine named vm1. Vm1 is on an Azure virtual network named vnet1.\n\nYou plan to create a new Azure Cognitive Search service named service1.\n\nYou need to ensure that app1 can connect directly to service1 without routing traffic over the public internet.\n\nSolution: You deploy service1 and a public endpoint to a new virtual network, and you configure Azure Private Link.\n\nDoes this meet the goal?",
+    "choices": {
+      "A": "Yes",
+      "B": "No"
+    },
+    "answer": "B"
+  },
+  {
+    "id": 66,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.\n\nAfter you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.\n\nYou create a web app named app1 that runs on an Azure virtual machine named vm1. Vm1 is on an Azure virtual network named vnet1.\n\nYou plan to create a new Azure Cognitive Search service named service1.\n\nYou need to ensure that app1 can connect directly to service1 without routing traffic over the public internet.\n\nSolution: You deploy service1 and a public endpoint, and you configure an IP firewall rule.\n\nDoes this meet the goal?",
+    "choices": {
+      "A": "Yes",
+      "B": "No"
+    },
+    "answer": "B"
+  },
+  {
+    "id": 67,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.\n\nAfter you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.\n\nYou create a web app named app1 that runs on an Azure virtual machine named vm1. Vm1 is on an Azure virtual network named vnet1.\n\nYou plan to create a new Azure Cognitive Search service named service1.\n\nYou need to ensure that app1 can connect directly to service1 without routing traffic over the public internet.\n\nSolution: You deploy service1 and a public endpoint, and you configure a network security group (NSG) for vnet1.\n\nDoes this meet the goal?",
+    "choices": {
+      "A": "Yes",
+      "B": "No"
+    },
+    "answer": "B"
+  },
+  {
+    "id": 68,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You plan to perform predictive maintenance.\n\nYou collect IoT sensor data from 100 industrial machines for a year. Each machine has 50 different sensors that generate data at one-minute intervals. In total, you have 5,000 time series datasets.\n\nYou need to identify unusual values in each time series to help predict machinery failures.\n\nWhich Azure service should you use?",
+    "choices": {
+      "A": "Anomaly Detector",
+      "B": "Cognitive Search",
+      "C": "Form Recognizer",
+      "D": "Custom Vision"
+    },
+    "answer": "A"
+  },
+  {
+    "id": 69,
+    "type": "hotspot_dropdown",
+    "img": "/AI102_imgs/q18.png",
+    "prompt": "You are developing a streaming Speech to Text solution that will use the Speech SDK and MP3 encoding.\n\nYou need to develop a method to convert speech to text for streaming MP3 data.\n\nHow should you complete the code? To answer, select the appropriate options in the answer area.\n\nNOTE: Each correct selection is worth one point.",
+    "items": [
+      {
+        "text": "var audioFormat = [answer choice 1](AudioStreamContainerFormat.MP3);",
+        "options": [
+          "AudioConfig.SetProperty",
+          "AudioStreamFormat.GetCompressedFormat",
+          "AudioStreamFormat.GetWaveFormatPCM",
+          "PullAudioInputStream"
+        ],
+        "answer": "AudioStreamFormat.GetCompressedFormat"
+      },
+      {
+        "text": "using (var recognizer = new [answer choice 2](speechConfig, audioConfig))",
+        "options": [
+          "KeywordRecognizer",
+          "SpeakerRecognizer",
+          "SpeechRecognizer",
+          "SpeechSynthesizer"
+        ],
+        "answer": "SpeechRecognizer"
+      }
+    ]
+  },
+  {
+    "id": 70,
+    "type": "hotspot_dropdown",
+    "img": "/AI102_imgs/q19.png",
+    "prompt": "You are developing an internet-based training solution for remote learners.\n\nYour company identifies that during the training, some learners leave their desk for long periods or become distracted.\n\nYou need to use a video and audio feed from each learner's computer to detect whether the learner is present and paying attention. The solution must minimize development effort and identify each learner.\n\nWhich Azure Cognitive Services service should you use for each requirement? To answer, select the appropriate options in the answer area.",
+    "items": [
+      {
+        "text": "From a learner's video feed, verify whether the learner is present: [answer choice]",
+        "options": ["Face", "Speech", "Text Analytics"],
+        "answer": "Face"
+      },
+      {
+        "text": "From a learner's facial expression in the video feed, verify whether the learner is paying attention: [answer choice]",
+        "options": ["Face", "Speech", "Text Analytics"],
+        "answer": "Face"
+      },
+      {
+        "text": "From a learner's audio feed, detect whether the learner is talking: [answer choice]",
+        "options": ["Face", "Speech", "Text Analytics"],
+        "answer": "Speech"
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "type": "hotspot_dropdown",
+    "img": "/AI102_imgs/q71.png",
+    "prompt": "You have 1,000 scanned images of hand-written survey responses. The surveys do NOT have a consistent layout.\n\nYou have an Azure subscription that contains an Azure AI Document Intelligence resource named Aldoc1.\n\nYou open Document Intelligence Studio and create a new project.\n\nYou need to extract data from the survey responses. The solution must minimize development effort.\n\nTo where should you upload the images, and which type of model should you use? To answer, select the appropriate options in the answer area.",
+    "items": [
+      {
+        "text": "Upload to: [answer choice 1]",
+        "options": [
+          "An Azure Cosmos DB account",
+          "An Azure Files share",
+          "An Azure Storage account"
+        ],
+        "answer": "An Azure Storage account"
+      },
+      {
+        "text": "Model type: [answer choice 2]",
+        "options": [
+          "Custom neural",
+          "Custom template",
+          "Identity document (ID)"
+        ],
+        "answer": "Custom neural"
+      }
+    ]
   }
 ]
 
