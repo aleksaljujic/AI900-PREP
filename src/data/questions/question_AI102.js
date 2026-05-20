@@ -1303,6 +1303,174 @@ const questions = [
     ]
   },
   {
+    "id": 81,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You have an Azure Video Analyzer for Media (previously Video Indexer) service that is used to provide a search interface over company videos on your company's website. You need to be able to search for videos based on who is present in the video. What should you do?",
+    "choices": {
+      "A": "Create a person model and associate the model to the videos.",
+      "B": "Create person objects and provide face images for each object.",
+      "C": "Invite the entire staff of the company to Video Indexer.",
+      "D": "Edit the faces in the videos.",
+      "E": "Upload names to a language model."
+    },
+    "answer": "A"
+  },
+  {
+    "id": 82,
+    "type": "multiple_choice_multi_select",
+    "img": null,
+    "question": "You use the Custom Vision service to build a classifier. After training is complete, you need to evaluate the classifier. Which two metrics are available for review? Each correct answer presents a complete solution.",
+    "choices": {
+      "A": "recall",
+      "B": "F-score",
+      "C": "weighted accuracy",
+      "D": "precision",
+      "E": "area under the curve (AUC)"
+    },
+    "answer": [
+      "A",
+      "D"
+    ]
+  },
+  {
+    "id": 83,
+    "type": "drag_and_drop",
+    "img": "/AI102_imgs/t2q12.png",
+    "prompt": "You are developing a call to the Face API. The call must find similar faces from an existing list named employeefaces. The employeefaces list contains 60,000 images. How should you complete the body of the HTTP request? To answer, drag the appropriate values to the correct targets. Each value may be used once, more than once, or not at all.",
+    "choices_pool": [
+      "\"faceListId\"",
+      "\"LargeFaceListId\"",
+      "\"matchFace\"",
+      "\"matchPerson\""
+    ],
+    "targets": [
+      {
+        "text": "The key used to reference the face list in the request body (replacing the placeholder before `: \"employeefaces\"`)",
+        "answer": "\"LargeFaceListId\""
+      },
+      {
+        "text": "The value for the \"mode\" field in the request body",
+        "answer": "\"matchFace\""
+      }
+    ]
+  },
+  {
+    "id": 84,
+    "type": "drag_and_drop",
+    "img": "/AI102_imgs/t2q13.png",
+    "prompt": "You are developing a photo application that will find photos of a person based on a sample image by using the Face API. You need to create a POST request to find the photos. How should you complete the request? To answer, drag the appropriate values to the correct targets. Each value may be used once, more than once, or not at all.",
+    "choices_pool": [
+      "detect",
+      "findsimilars",
+      "group",
+      "identify",
+      "matchFace",
+      "matchPerson",
+      "verify"
+    ],
+    "targets": [
+      {
+        "text": "POST {Endpoint}/face/v1.0/[answer] — the API endpoint path segment",
+        "answer": "findsimilars"
+      },
+      {
+        "text": "The value for the \"mode\" field in the request body",
+        "answer": "matchPerson"
+      }
+    ]
+  },
+  {
+    "id": 85,
+    "type": "hotspot_yes_no",
+    "img": "/AI102_imgs/t2q14.png",
+    "prompt": "You develop a test method to verify the results retrieved from a call to the Computer Vision API. The call is used to analyze the existence of company logos in images. The call returns a collection of brands named brands. You have a code segment that iterates over brands and prints brand name and rectangle coordinates (x, y, w, h) for brands with confidence >= 0.75. For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "statements": [
+      {
+        "text": "The code will return the name of each detected brand with a confidence equal to or higher than 75 percent.",
+        "answer": "Yes"
+      },
+      {
+        "text": "The code will return coordinates for the top-left corner of the rectangle that contains the brand logo of the displayed brands.",
+        "answer": "Yes"
+      },
+      {
+        "text": "The code will return coordinates for the bottom-right corner of the rectangle that contains the brand logo of the displayed brands.",
+        "answer": "No"
+      }
+    ]
+  },
+  {
+    "id": 86,
+    "type": "hotspot_dropdown",
+    "img": "/AI102_imgs/t2q15.png",
+    "prompt": "You develop an application that uses the Face API. You need to add multiple images to a person group. How should you complete the code? To answer, select the appropriate options in the answer area.",
+    "items": [
+      {
+        "text": "using([answer choice] t = File.OpenRead(imagePath))",
+        "options": [
+          "File",
+          "Stream",
+          "Uri",
+          "Url"
+        ],
+        "answer": "Stream"
+      },
+      {
+        "text": "await faceClient.PersonGroupPerson.[answer choice](personGroupId, personId, t);",
+        "options": [
+          "AddFaceFromStreamAsync",
+          "AddFaceFromUrlAsync",
+          "CreateAsync",
+          "GetAsync"
+        ],
+        "answer": "AddFaceFromStreamAsync"
+      }
+    ]
+  },
+  {
+    "id": 87,
+    "type": "multiple_choice",
+    "img": "/AI102_imgs/t2q16.png",
+    "question": "Your company uses an Azure Cognitive Services solution to detect faces in uploaded images using detection_01 model. You discover that the solution frequently fails to detect faces in blurred images and in images that contain sideways faces. You need to increase the likelihood that the solution can detect faces in blurred images and images that contain sideways faces. What should you do?",
+    "choices": {
+      "A": "Use a different version of the Face API.",
+      "B": "Use the Computer Vision service instead of the Face service.",
+      "C": "Use the Identify method instead of the Detect method.",
+      "D": "Change the detection model."
+    },
+    "answer": "D"
+  },
+  {
+    "id": 88,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You have a Python function for creating Azure Cognitive Services resources programmatically. You need to call the function to create a free Azure resource in the West US Azure region. The resource will be used to generate captions of images automatically. Which code should you use?",
+    "choices": {
+      "A": "create_resource(\"res1\", \"ComputerVision\", \"F0\", \"westus\")",
+      "B": "create_resource(\"res1\", \"CustomVision.Prediction\", \"F0\", \"westus\")",
+      "C": "create_resource(\"res1\", \"ComputerVision\", \"S0\", \"westus\")",
+      "D": "create_resource(\"res1\", \"CustomVision.Prediction\", \"S0\", \"westus\")"
+    },
+    "answer": "A"
+  },
+  {
+    "id": 89,
+    "type": "multiple_choice_multi_select",
+    "img": "/AI102_imgs/t2q18.png",
+    "question": "You are developing a method that uses the Computer Vision client library to perform optical character recognition (OCR) in images. During testing, you discover that the call to the GetReadResultAsync method occurs before the read operation is complete. You need to prevent the GetReadResultAsync method from proceeding until the read operation is complete. Which two actions should you perform? Each correct answer presents part of the solution.",
+    "choices": {
+      "A": "Remove the operation_id parameter.",
+      "B": "Add code to verify the read_results.status value.",
+      "C": "Add code to verify the status of the read_operation_location value.",
+      "D": "Wrap the call to get_read_result within a loop that contains a delay."
+    },
+    "answer": [
+      "B",
+      "D"
+    ]
+  },
+  {
     "id": 91,
     "type": "multiple_choice",
     "img": null,
@@ -1735,6 +1903,1343 @@ const questions = [
       "E": "File1, File2, and File4 only"
     },
     "answer": "B"
+  },
+  {
+    "id": 114,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You build a language model by using a Language Understanding service. The language model is used to search for information on a contact list by using an intent named FindContact. A conversational expert provides you with the following list of phrases to use for training:\n- Find contacts in London.\n- Who do I know in Seattle?\n- Search for contacts in Ukraine.\n\nYou need to implement the phrase list in Language Understanding.\nSolution: You create a new pattern in the FindContact intent.\nDoes this meet the goal?",
+    "choices": {
+      "A": "Yes",
+      "B": "No"
+    },
+    "answer": "A"
+  },
+  {
+    "id": 115,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You develop an application to identify species of flowers by training a Custom Vision model. You receive images of new flower species.\nYou need to add the new images to the classifier.\nSolution: You add the new images, and then use the Smart Labeler tool.\nDoes this meet the goal?",
+    "choices": {
+      "A": "Yes",
+      "B": "No"
+    },
+    "answer": "B"
+  },
+  {
+    "id": 116,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You develop an application to identify species of flowers by training a Custom Vision model. You receive images of new flower species.\nYou need to add the new images to the classifier.\nSolution: You add the new images and labels to the existing model. You retrain the model, and then publish the model.\nDoes this meet the goal?",
+    "choices": {
+      "A": "Yes",
+      "B": "No"
+    },
+    "answer": "A"
+  },
+  {
+    "id": 117,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You develop an application to identify species of flowers by training a Custom Vision model. You receive images of new flower species.\nYou need to add the new images to the classifier.\nSolution: You create a new model, and then upload the new images and labels.\nDoes this meet the goal?",
+    "choices": {
+      "A": "Yes",
+      "B": "No"
+    },
+    "answer": "B"
+  },
+  {
+    "id": 118,
+    "type": "hotspot_dropdown",
+    "img": null,
+    "prompt": "You are developing a service that records lectures given in English (United Kingdom). You have a method named AppendToTranscriptFile that takes translated text and a language identifier. You need to develop code that will provide transcripts of the lectures to attendees in their respective language. The supported languages are English, French, Spanish, and German.\nHow should you complete the code?",
+    "items": [
+      {
+        "text": "var lang = new List<string> [answer choice];",
+        "options": [
+          "{\"en-GB\"}",
+          "{\"fr\", \"de\", \"es\"}",
+          "{\"French\", \"Spanish\", \"German\"}",
+          "{languages}"
+        ],
+        "answer": "{\"fr\", \"de\", \"es\"}"
+      },
+      {
+        "text": "using var recognizer = new [answer choice](config, audioConfig);",
+        "options": [
+          "IntentRecognizer",
+          "SpeakerRecognizer",
+          "SpeechSynthesizer",
+          "TranslationRecognizer"
+        ],
+        "answer": "TranslationRecognizer"
+      }
+    ]
+  },
+  {
+    "id": 119,
+    "type": "drag_and_drop_order",
+    "img": null,
+    "prompt": "You train a Custom Vision model used in a mobile app. You receive 1,000 new images that do not have any associated data. You need to use the images to retrain the model. The solution must minimize how long it takes to retrain the model.\nWhich three actions should you perform in the Custom Vision portal, and in which order?",
+    "choices_pool": [
+      "Upload the images by category.",
+      "Get suggested tags.",
+      "Upload all the images.",
+      "Group the images locally into category folders.",
+      "Review the suggestions and confirm the tags.",
+      "Tag the images manually."
+    ],
+    "answer_order": [
+      "Upload all the images.",
+      "Get suggested tags.",
+      "Review the suggestions and confirm the tags."
+    ]
+  },
+  {
+    "id": 120,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You are building a Conversational Language Understanding model for an e-commerce chatbot. Users can speak or type their billing address when prompted by the chatbot.\nYou need to construct an entity to capture billing addresses.\nWhich entity type should you use?",
+    "choices": {
+      "A": "machine learned",
+      "B": "Regex",
+      "C": "list",
+      "D": "Pattern.any"
+    },
+    "answer": "A"
+  },
+  {
+    "id": 121,
+    "type": "multiple_choice_multi_select",
+    "img": null,
+    "question": "You are building an Azure WebJob that will create knowledge bases from an array of URLs. You instantiate a QnAMakerClient object that has the relevant API keys and assign the object to a variable named client.\nYou need to develop a method to create the knowledge bases.\nWhich two actions should you include in the method? Each correct answer presents part of the solution.",
+    "choices": {
+      "A": "Create a list of FileDTO objects that represents data from the WebJob.",
+      "B": "Call the client.Knowledgebase.CreateAsync method.",
+      "C": "Create a list of QnADTO objects that represents data from the WebJob.",
+      "D": "Create a CreateKbDTO object."
+    },
+    "answer": [
+      "B",
+      "D"
+    ]
+  },
+  {
+    "id": 122,
+    "type": "hotspot_dropdown",
+    "img": null,
+    "prompt": "You are developing an application that includes language translation. The application will translate text retrieved by using a function named getTextToBeTranslated. The text can be in one of many languages. The content of the text must remain within the Americas Azure geography.\nYou need to develop code to translate the text to a single language.\nHow should you complete the code?",
+    "items": [
+      {
+        "text": "var endpoint = [answer choice]",
+        "options": [
+          "\"https://api.cognitive.microsofttranslator.com/translate\"",
+          "\"https://api.cognitive.microsofttranslator.com/transliterate\"",
+          "\"https://api-apc.cognitive.microsofttranslator.com/detect\"",
+          "\"https://api-nam.cognitive.microsofttranslator.com/detect\"",
+          "\"https://api-nam.cognitive.microsofttranslator.com/translate\""
+        ],
+        "answer": "\"https://api-nam.cognitive.microsofttranslator.com/translate\""
+      },
+      {
+        "text": "var uri = endpoint + [answer choice]",
+        "options": [
+          "\"?from=en\"",
+          "\"?suggestedFrom=en\"",
+          "\"?to=en\""
+        ],
+        "answer": "\"?to=en\""
+      }
+    ]
+  },
+  {
+    "id": 123,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You are building a conversational language understanding model.\nYou need to enable active learning.\nWhat should you do?",
+    "choices": {
+      "A": "Add show-all-intents=true to the prediction endpoint query.",
+      "B": "Enable speech priming.",
+      "C": "Add log=true to the prediction endpoint query.",
+      "D": "Enable sentiment analysis."
+    },
+    "answer": "C"
+  },
+  {
+    "id": 124,
+    "type": "hotspot_yes_no",
+    "img": null,
+    "prompt": "You run the following command:\ndocker run --rm -it -p 5000:5000 --memory 10g --cpus 2 \\\nmcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment\\\nEula=accept\\\nBilling={ENDPOINT_URI}\\\nApiKey={API_KEY}\n\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "statements": [
+      {
+        "text": "Going to http://localhost:5000/status will query the Azure endpoint to verify whether the API key used to start the container is valid.",
+        "answer": "Yes"
+      },
+      {
+        "text": "The container logging provider will write log data.",
+        "answer": "No"
+      },
+      {
+        "text": "Going to http://localhost:5000/swagger will provide the details to access the documentation for the available endpoints.",
+        "answer": "Yes"
+      }
+    ]
+  },
+  {
+    "id": 125,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You are building a Language Understanding model for an e-commerce platform.\nYou need to construct an entity to capture billing addresses.\nWhich entity type should you use for the billing address?",
+    "choices": {
+      "A": "machine learned",
+      "B": "Regex",
+      "C": "geographyV2",
+      "D": "Pattern.any",
+      "E": "list"
+    },
+    "answer": "A"
+  },
+  {
+    "id": 126,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You need to upload speech samples to a Speech Studio project for use in training.\nHow should you upload the samples?",
+    "choices": {
+      "A": "Combine the speech samples into a single audio file in the .wma format and upload the file.",
+      "B": "Upload a .zip file that contains a collection of audio files in the .wav format and a corresponding text transcript file.",
+      "C": "Upload individual audio files in the FLAC format and manually upload a corresponding transcript in Microsoft Word format.",
+      "D": "Upload individual audio files in the .wma format."
+    },
+    "answer": "B"
+  },
+  {
+    "id": 127,
+    "type": "multiple_choice_multi_select",
+    "img": null,
+    "question": "You are developing a method for an application that uses the Translator API. The method will receive the content of a webpage, and then translate the content into Greek (el). The result will also contain a transliteration that uses the Roman alphabet.\nYou need to create the URL for the call to the Translator API.\nYou have the following URI: https://api.cognitive.microsofttranslator.com/translate?api-version=3.0\nWhich three additional query parameters should you include in the URL? Each correct answer presents part of the solution.",
+    "choices": {
+      "A": "toScript=Cyrl",
+      "B": "from=el",
+      "C": "textType=html",
+      "D": "to=el",
+      "E": "textType=plain",
+      "F": "toScript=Latn"
+    },
+    "answer": [
+      "C",
+      "D",
+      "F"
+    ]
+  },
+  {
+    "id": 128,
+    "type": "multiple_choice_multi_select",
+    "img": null,
+    "question": "You have a chatbot that was built by using the Microsoft Bot Framework.\nYou need to debug the chatbot endpoint remotely.\nWhich two tools should you install on a local computer? Each correct answer presents part of the solution.",
+    "choices": {
+      "A": "Fiddler",
+      "B": "Bot Framework Composer",
+      "C": "Bot Framework Emulator",
+      "D": "Bot Framework CLI",
+      "E": "ngrok",
+      "F": "nginx"
+    },
+    "answer": [
+      "C",
+      "E"
+    ]
+  },
+  {
+    "id": 129,
+    "type": "drag_and_drop_order",
+    "img": null,
+    "prompt": "You are building a retail chatbot that will use a QnA Maker service. You upload an internal support document to train the model. The document contains the following question: 'What is your warranty period?' Users report that the chatbot returns the default QnA Maker answer when they ask: 'How long is the warranty coverage?' Both questions should return the same answer.\nYou need to increase the accuracy of the chatbot responses.\nWhich three actions should you perform in sequence?",
+    "choices_pool": [
+      "Add a new question and answer (QnA) pair.",
+      "Retrain the model.",
+      "Add additional questions to the document.",
+      "Republish the model.",
+      "Add alternative phrasing to the question and answer (QnA) pair."
+    ],
+    "answer_order": [
+      "Add alternative phrasing to the question and answer (QnA) pair.",
+      "Retrain the model.",
+      "Republish the model."
+    ]
+  },
+  {
+    "id": 130,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You build a language model by using a Language Understanding service. The language model is used to search for information on a contact list by using an intent named FindContact. A conversational expert provides you with the following list of phrases to use for training:\n- Find contacts in London.\n- Who do I know in Seattle?\n- Search for contacts in Ukraine.\n\nYou need to implement the phrase list in Language Understanding.\nSolution: You create a new intent for location.\nDoes this meet the goal?",
+    "choices": {
+      "A": "Yes",
+      "B": "No"
+    },
+    "answer": "B"
+  },
+  {
+    "id": 131,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You build a language model by using a Language Understanding service. The language model is used to search for information on a contact list by using an intent named FindContact. A conversational expert provides you with the following list of phrases to use for training:\n- Find contacts in London.\n- Who do I know in Seattle?\n- Search for contacts in Ukraine.\n\nYou need to implement the phrase list in Language Understanding.\nSolution: You create a new entity for the domain.\nDoes this meet the goal?",
+    "choices": {
+      "A": "Yes",
+      "B": "No"
+    },
+    "answer": "A"
+  },
+  {
+    "id": 132,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You are training a Language Understanding model for a user support system. You create the first intent named GetContactDetails and add 200 examples.\nYou need to decrease the likelihood of a false positive.\nWhat should you do?",
+    "choices": {
+      "A": "Enable active learning.",
+      "B": "Add a machine learned entity.",
+      "C": "Add additional examples to the GetContactDetails intent.",
+      "D": "Add examples to the None intent."
+    },
+    "answer": "D"
+  },
+  {
+    "id": 133,
+    "type": "drag_and_drop",
+    "img": null,
+    "prompt": "You are building a Language Understanding model for purchasing tickets. You have the following utterance for an intent named PurchaseAndSendTickets:\n'Purchase [2 audit business] tickets to [Paris] [next Monday] and send tickets to [email@domain.com]'\nYou need to select the entity types. The solution must use built-in entity types to minimize training data whenever possible.\nWhich entity type should you use for each label?",
+    "choices_pool": [
+      "Email",
+      "List",
+      "Regex",
+      "GeographyV2",
+      "Machine learned"
+    ],
+    "targets": [
+      {
+        "text": "Paris",
+        "answer": "GeographyV2"
+      },
+      {
+        "text": "email@domain.com",
+        "answer": "Email"
+      },
+      {
+        "text": "2 audit business",
+        "answer": "Machine learned"
+      }
+    ]
+  },
+  {
+    "id": 134,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You have the following C# method:\nstatic void create_resource(string resource_name, string kind, string account_tier, string location)\n{\n  CognitiveServicesAccount parameters = new CognitiveServicesAccount(null, null, kind, location, resource_name, new CognitiveServicesAccountProperties(), new Sku(account_tier));\n  var result = cog_svc_client.Accounts.Create(resource_group_name, account_tier, parameters);\n}\n\nYou need to deploy an Azure resource to the East US Azure region. The resource will be used to perform sentiment analysis.\nHow should you call the method?",
+    "choices": {
+      "A": "create_resource(\"res1\", \"ContentModerator\", \"S0\", \"eastus\")",
+      "B": "create_resource(\"res1\", \"TextAnalytics\", \"S0\", \"eastus\")",
+      "C": "create_resource(\"res1\", \"ContentModerator\", \"Standard\", \"East US\")",
+      "D": "create_resource(\"res1\", \"TextAnalytics\", \"Standard\", \"East US\")"
+    },
+    "answer": "B"
+  },
+  {
+    "id": 135,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You build a Conversational Language Understanding model by using the Language Services portal. You export the model as a JSON file with the following sample:\n{\n  \"text\": \"average amount of rain by month at chicago last year\",\n  \"intent\": \"Weather.CheckWeatherValue\",\n  \"entities\": [\n    {\"entity\": \"Weather.WeatherRange\", \"startPos\": 0, \"endPos\": 6},\n    {\"entity\": \"Weather.WeatherCondition\", \"startPos\": 18, \"endPos\": 21},\n    {\"entity\": \"Weather.Historic\", \"startPos\": 23, \"endPos\": 30}\n  ]\n}\n\nWhat does the Weather.Historic entity correspond to in the utterance?",
+    "choices": {
+      "A": "by month",
+      "B": "chicago",
+      "C": "rain",
+      "D": "location"
+    },
+    "answer": "A"
+  },
+  {
+    "id": 136,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You are examining the Text Analytics output of an application. The text analyzed is: 'Our tour guide took us up the Space Needle during our trip to Seattle last week.' The response contains the following data:\n- Tour guide | PersonType | 0.45\n- Space Needle | Location | 0.38\n- Trip | Event | 0.78\n- Seattle | Location | 0.78\n- Last week | DateTime | 0.80\n\nWhich Text Analytics API is used to analyze the text?",
+    "choices": {
+      "A": "Entity Linking",
+      "B": "Named Entity Recognition",
+      "C": "Sentiment Analysis",
+      "D": "Key Phrase Extraction"
+    },
+    "answer": "B"
+  },
+  {
+    "id": 140,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You need to measure the public perception of your brand on social media by using natural language processing.\nWhich Azure service should you use?",
+    "choices": {
+      "A": "Language service",
+      "B": "Content Moderator",
+      "C": "Computer Vision",
+      "D": "Form Recognizer"
+    },
+    "answer": "A"
+  },
+  {
+    "id": 141,
+    "type": "hotspot_dropdown",
+    "img": null,
+    "prompt": "You are developing an application that includes language translation. The application will translate text retrieved by using a function named get_text_to_be_translated. The text can be in one of many languages. The content of the text must remain within the Americas Azure geography.\nYou need to develop code to translate the text to a single language.\nHow should you complete the code?",
+    "items": [
+      {
+        "text": "conn = httplib.HTTPSConnection([answer choice])",
+        "options": [
+          "\"api.cognitive.microsofttranslator.com\"",
+          "\"api-apc.cognitive.microsofttranslator.com\"",
+          "\"api-nam.cognitive.microsofttranslator.com\""
+        ],
+        "answer": "\"api-nam.cognitive.microsofttranslator.com\""
+      },
+      {
+        "text": "conn.request(\"POST\", [answer choice], str(body), headers)",
+        "options": [
+          "\"/translate?from=en\"",
+          "\"/translate?suggestedFrom=en\"",
+          "\"/translate?to=en\"",
+          "\"/detect?to=en\"",
+          "\"/detect?from=en\""
+        ],
+        "answer": "\"/translate?to=en\""
+      }
+    ]
+  },
+  {
+    "id": 142,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You have the following data sources:\n- Finance: On-premises Microsoft SQL Server database\n- Sales: Azure Cosmos DB using the Core (SQL) API\n- Logs: Azure Table storage\n- HR: Azure SQL database\n\nYou need to ensure that you can search all the data by using the Azure Cognitive Search REST API.\nWhat should you do?",
+    "choices": {
+      "A": "Migrate the data in HR to Azure Blob storage.",
+      "B": "Migrate the data in HR to the on-premises SQL server.",
+      "C": "Export the data in Finance to Azure Data Lake Storage.",
+      "D": "Ingest the data in Logs into Azure Sentinel."
+    },
+    "answer": "C"
+  },
+  {
+    "id": 145,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You have a Language service resource that performs the following:\n- Sentiment analysis\n- Named Entity Recognition (NER)\n- Personally Identifiable Information (PII) identification\n\nYou need to prevent the resource from persisting input data once the data is analyzed.\nWhich query parameter in the Language service API should you configure?",
+    "choices": {
+      "A": "model-version",
+      "B": "piiCategories",
+      "C": "showStats",
+      "D": "loggingOptOut"
+    },
+    "answer": "D"
+  },
+  {
+    "id": 146,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You have an Azure Cognitive Services model named Model1 that identifies the intent of text input. You develop an app in C# named App1.\nYou need to configure App1 to use Model1.\nWhich package should you add to App1?",
+    "choices": {
+      "A": "Universal.Microsoft.CognitiveServices.Speech",
+      "B": "SpeechServicesToolkit",
+      "C": "Azure.AI.Language.Conversations",
+      "D": "Xamarin.Cognitive.Speech"
+    },
+    "answer": "C"
+  },
+  {
+    "id": 147,
+    "type": "hotspot_dropdown",
+    "img": null,
+    "prompt": "You are building content for a video training solution. You need to create narration to accompany the video content. The solution must use Custom Neural Voice.\nWhat should you use to create a custom neural voice, and which service should you use to generate the narration?",
+    "items": [
+      {
+        "text": "Custom neural voice: [answer choice]",
+        "options": [
+          "Microsoft Bot Framework Composer",
+          "The Azure portal",
+          "The Language Understanding portal",
+          "The Speech Studio portal"
+        ],
+        "answer": "The Speech Studio portal"
+      },
+      {
+        "text": "Narration: [answer choice]",
+        "options": [
+          "Language Understanding",
+          "Speaker Recognition",
+          "Speech-to-text",
+          "Text-to-speech"
+        ],
+        "answer": "Text-to-speech"
+      }
+    ]
+  },
+  {
+    "id": 148,
+    "type": "hotspot_dropdown",
+    "img": null,
+    "prompt": "You are building a call handling system that will receive calls from French-speaking and German-speaking callers. The system must perform the following tasks:\n- Capture inbound voice messages as text.\n- Replay messages in English on demand.\nWhich Azure Cognitive Services services should you use?",
+    "items": [
+      {
+        "text": "To capture messages: [answer choice]",
+        "options": [
+          "Speaker Recognition",
+          "Speech-to-text",
+          "Text-to-speech",
+          "Translator"
+        ],
+        "answer": "Speech-to-text"
+      },
+      {
+        "text": "To replay messages: [answer choice]",
+        "options": [
+          "Speech-to-text only",
+          "Speech-to-text and Language",
+          "Speaker Recognition and Language",
+          "Text-to-speech and Language",
+          "Text-to-speech and Translator"
+        ],
+        "answer": "Text-to-speech and Translator"
+      }
+    ]
+  },
+  {
+    "id": 149,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You are building a social media extension that will convert text to speech. The solution must meet the following requirements:\n- Support messages of up to 400 characters.\n- Provide users with multiple voice options.\n- Minimize costs.\nYou create an Azure Cognitive Services resource.\nWhich Speech API endpoint provides users with the available voice options?",
+    "choices": {
+      "A": "https://uksouth.api.cognitive.microsoft.com/speechtotext/v3.0/models/base",
+      "B": "https://uksouth.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/longaudiosynthesis/voices",
+      "C": "https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list",
+      "D": "https://uksouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}"
+    },
+    "answer": "C"
+  },
+  {
+    "id": 150,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You develop a custom question answering project in Azure Cognitive Service for Language. The project will be used by a chatbot.\nYou need to configure the project to engage in multi-turn conversations.\nWhat should you do?",
+    "choices": {
+      "A": "Add follow-up prompts.",
+      "B": "Enable active learning.",
+      "C": "Add alternate questions.",
+      "D": "Enable chit-chat."
+    },
+    "answer": "A"
+  },
+  {
+    "id": 151,
+    "type": "hotspot_yes_no",
+    "img": null,
+    "prompt": "You use the following code:\nstatic void EntityLinker(TextAnalyticsClient client)\n{\n  var response = client.RecognizeLinkedEntities(\"Our tour guide took us up the Space Needle during our trip to Seattle last week.\");\n}\n\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "statements": [
+      {
+        "text": "The code will detect the language of documents.",
+        "answer": "Yes"
+      },
+      {
+        "text": "The url attribute returned for each linked entity will be a Bing search link.",
+        "answer": "No"
+      },
+      {
+        "text": "The matches attribute returned for each linked entity will provide the location in a document where the entity is referenced.",
+        "answer": "Yes"
+      }
+    ]
+  },
+  {
+    "id": 152,
+    "type": "multiple_choice_multi_select",
+    "img": null,
+    "question": "You train a Conversational Language Understanding model to understand the natural language input of users.\nYou need to evaluate the accuracy of the model before deploying it.\nWhat are two methods you can use? Each correct answer presents a complete solution.",
+    "choices": {
+      "A": "From the language authoring REST endpoint, retrieve the model evaluation summary.",
+      "B": "From Language Studio, enable Active Learning, and then validate the utterances logged for review.",
+      "C": "From Language Studio, select Model performance.",
+      "D": "From the Azure portal, enable log collection in Log Analytics, and then analyze the logs."
+    },
+    "answer": [
+      "A",
+      "C"
+    ]
+  },
+  {
+    "id": 153,
+    "type": "hotspot_dropdown",
+    "img": null,
+    "prompt": "You develop an app in C# named App1 that performs speech-to-speech translation. You need to configure App1 to translate English to German.\nHow should you complete the SpeechTranslationConfig object?",
+    "items": [
+      {
+        "text": "translationConfig.[answer choice] = \"en-US\";",
+        "options": [
+          "addTargetLanguage",
+          "speechSynthesisLanguage",
+          "speechRecognitionLanguage",
+          "voiceName"
+        ],
+        "answer": "speechRecognitionLanguage"
+      },
+      {
+        "text": "translationConfig.[answer choice](\"de\");",
+        "options": [
+          "addTargetLanguage",
+          "speechSynthesisLanguage",
+          "speechRecognitionLanguage",
+          "voiceName"
+        ],
+        "answer": "addTargetLanguage"
+      }
+    ]
+  },
+  {
+    "id": 154,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You have an Azure subscription that contains an Azure Cognitive Service for Language resource.\nYou need to identify the URL of the REST interface for the Language service.\nWhich blade should you use in the Azure portal?",
+    "choices": {
+      "A": "Identity",
+      "B": "Keys and Endpoint",
+      "C": "Networking",
+      "D": "Properties"
+    },
+    "answer": "B"
+  },
+  {
+    "id": 155,
+    "type": "drag_and_drop_order",
+    "img": null,
+    "prompt": "You are building a transcription service for technical podcasts. Testing reveals that the service fails to transcribe technical terms accurately.\nYou need to improve the accuracy of the service.\nWhich five actions should you perform in sequence?",
+    "choices_pool": [
+      "Deploy the model.",
+      "Create a Custom Speech project.",
+      "Upload training datasets.",
+      "Create a speech-to-text model.",
+      "Create a Speaker Recognition model.",
+      "Train the model.",
+      "Create a Conversational Language Understanding model."
+    ],
+    "answer_order": [
+      "Create a Custom Speech project.",
+      "Create a speech-to-text model.",
+      "Upload training datasets.",
+      "Train the model.",
+      "Deploy the model."
+    ]
+  },
+  {
+    "id": 156,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You are building a retail kiosk system that will use a custom neural voice. You acquire audio samples and consent from the voice talent.\nYou need to create a voice talent profile.\nWhat should you upload to the profile?",
+    "choices": {
+      "A": "a .zip file that contains 10-second .wav files and the associated transcripts as .txt files",
+      "B": "a five-minute .flac audio file and the associated transcript as a .txt file",
+      "C": "a .wav or .mp3 file of the voice talent consenting to the creation of a synthetic version of their voice",
+      "D": "a five-minute .wav or .mp3 file of the voice talent describing the kiosk system"
+    },
+    "answer": "C"
+  },
+  {
+    "id": 157,
+    "type": "drag_and_drop_order",
+    "img": null,
+    "prompt": "You have a Language Understanding solution that runs in a Docker container. You download the Language Understanding container image from the Microsoft Container Registry (MCR).\nYou need to deploy the container image to a host computer.\nWhich three actions should you perform in sequence?",
+    "choices_pool": [
+      "From the host computer, move the package file to the Docker input directory.",
+      "From the Language Understanding portal, export the solution as a package file.",
+      "From the host computer, build the container and specify the output directory.",
+      "From the host computer, run the container and specify the input directory.",
+      "From the Language Understanding portal, retrain the model."
+    ],
+    "answer_order": [
+      "From the Language Understanding portal, export the solution as a package file.",
+      "From the host computer, move the package file to the Docker input directory.",
+      "From the host computer, run the container and specify the input directory."
+    ]
+  },
+  {
+    "id": 158,
+    "type": "hotspot_dropdown",
+    "img": null,
+    "prompt": "You are building a text-to-speech app that will use a custom neural voice. You need to create an SSML file for the app. The solution must ensure that the voice profile meets the following requirements:\n- Expresses a calm tone\n- Imitates the voice of a young adult female\nHow should you complete the code?",
+    "items": [
+      {
+        "text": "<mstts:express-as [answer choice]=\"YoungAdultFemale\">",
+        "options": [
+          "role",
+          "style",
+          "styledegree",
+          "type",
+          "voice"
+        ],
+        "answer": "role"
+      },
+      {
+        "text": "<mstts:express-as ... [answer choice]=\"gentle\">",
+        "options": [
+          "role",
+          "style",
+          "styledegree",
+          "type",
+          "voice"
+        ],
+        "answer": "style"
+      }
+    ]
+  },
+  {
+    "id": 159,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You are building an Azure AI Language Understanding solution. You discover that many intents have similar utterances containing airport names or airport codes.\nYou need to minimize the number of utterances used to train the model.\nWhich type of custom entity should you use?",
+    "choices": {
+      "A": "Pattern.any",
+      "B": "machine-learning",
+      "C": "regular expression",
+      "D": "list"
+    },
+    "answer": "A"
+  },
+  {
+    "id": 160,
+    "type": "multiple_choice_multi_select",
+    "img": null,
+    "question": "You have a text-based chatbot. You need to enable content moderation by using the Text Moderation API of Content Moderator.\nWhich two service responses should you use? Each correct answer presents part of the solution.",
+    "choices": {
+      "A": "personal data",
+      "B": "the adult classification score",
+      "C": "text classification",
+      "D": "optical character recognition (OCR)",
+      "E": "the racy classification score"
+    },
+    "answer": [
+      "A",
+      "C"
+    ]
+  },
+  {
+    "id": 161,
+    "type": "hotspot_yes_no",
+    "img": null,
+    "prompt": "You are developing a text processing solution. You have the following function:\nstatic void GetKeywords(TextAnalyticsClient textAnalyticsClient, string text)\n{\n  var response = textAnalyticsClient.RecognizeEntities(text);\n  Console.WriteLine(\"Key words:\");\n  foreach (CategorizedEntity entity in response.Value)\n    Console.WriteLine($\"\\t{entity.Text}\");\n}\n\nYou call the function with the string: \"Our tour of Paris included a visit to the Eiffel Tower\"\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "statements": [
+      {
+        "text": "The output will include the following words: our and included.",
+        "answer": "No"
+      },
+      {
+        "text": "The output will include the following words: Paris, Eiffel, and Tower.",
+        "answer": "Yes"
+      },
+      {
+        "text": "The function will output all the key phrases from the input string to the console.",
+        "answer": "No"
+      }
+    ]
+  },
+  {
+    "id": 162,
+    "type": "hotspot_dropdown",
+    "img": null,
+    "prompt": "You are building an Azure web app named App1 that will translate text from English to Spanish. You need to use the Text Translation REST API to perform the translation. The solution must ensure that you have data sovereignty in the United States.\nHow should you complete the URL?",
+    "items": [
+      {
+        "text": "https://[answer choice]/...",
+        "options": [
+          "api.cognitive.microsofttranslator.com",
+          "api-nam.cognitive.microsofttranslator.com",
+          "api-nam.cognitiveservices.azure.com",
+          "eastus.api.cognitive.microsoft.com"
+        ],
+        "answer": "api-nam.cognitive.microsofttranslator.com"
+      },
+      {
+        "text": "https://....[answer choice]?api-version=3.0&to=es",
+        "options": [
+          "detect",
+          "languages",
+          "text-to-speech",
+          "translate"
+        ],
+        "answer": "translate"
+      }
+    ]
+  },
+  {
+    "id": 163,
+    "type": "drag_and_drop_order",
+    "img": null,
+    "prompt": "You have a Docker host named Host1 that contains a container base image. You have an Azure subscription that contains a custom speech-to-text model named model1.\nYou need to run model1 on Host1.\nWhich three actions should you perform in sequence?",
+    "choices_pool": [
+      "Retrain the model.",
+      "Request approval to run the container.",
+      "Export model1 to Host1.",
+      "Run the container.",
+      "Configure disk logging."
+    ],
+    "answer_order": [
+      "Request approval to run the container.",
+      "Export model1 to Host1.",
+      "Run the container."
+    ]
+  },
+  {
+    "id": 164,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You build a language model by using a Conversational Language Understanding. The language model is used to search for information on a contact list by using an intent named FindContact. A conversational expert provides you with the following list of phrases to use for training:\n- Find contacts in London.\n- Who do I know in Seattle?\n- Search for contacts in Ukraine.\n\nYou need to implement the phrase list in Conversational Language Understanding.\nSolution: You create a new utterance for each phrase in the FindContact intent.\nDoes this meet the goal?",
+    "choices": {
+      "A": "Yes",
+      "B": "No"
+    },
+    "answer": "A"
+  },
+  {
+    "id": 165,
+    "type": "drag_and_drop_order",
+    "img": null,
+    "prompt": "You have a question answering project in Azure Cognitive Service for Language. You need to move the project to a Language service instance in a different Azure region.\nWhich three actions should you perform in sequence?",
+    "choices_pool": [
+      "From the new Language service instance, train and publish the project.",
+      "From the new Language service instance, import the project file.",
+      "From the new Language service instance, enable custom text classification.",
+      "From the original Language service instance, export the existing project.",
+      "From the new Language service instance, regenerate the keys.",
+      "From the original Language service instance, train and publish the model."
+    ],
+    "answer_order": [
+      "From the original Language service instance, export the existing project.",
+      "From the new Language service instance, import the project file.",
+      "From the new Language service instance, train and publish the project."
+    ]
+  },
+  {
+    "id": 166,
+    "type": "drag_and_drop",
+    "img": null,
+    "prompt": "You are building a customer support chatbot. You need to configure the bot to identify the following:\n- Code names for internal product development\n- Messages that include credit card numbers\nThe solution must minimize development effort.\nWhich Azure Cognitive Service for Language feature should you use for each requirement?",
+    "choices_pool": [
+      "Custom named entity recognition (NER)",
+      "Key phrase extraction",
+      "Language detection",
+      "Named Entity Recognition (NER)",
+      "Personally Identifiable Information (PII) detection",
+      "Sentiment analysis"
+    ],
+    "targets": [
+      {
+        "text": "Identify code names for internal product development",
+        "answer": "Custom named entity recognition (NER)"
+      },
+      {
+        "text": "Identify messages that include credit card numbers",
+        "answer": "Personally Identifiable Information (PII) detection"
+      }
+    ]
+  },
+  {
+    "id": 167,
+    "type": "hotspot_dropdown",
+    "img": null,
+    "prompt": "You are building an app by using the Speech SDK. The app will translate speech from French to German by using natural language processing.\nYou need to define the source language and the output language.\nHow should you complete the code?",
+    "items": [
+      {
+        "text": "speechTranslationConfig.[answer choice] = \"fr\"",
+        "options": [
+          "AddTargetLanguage",
+          "SpeechRecognitionLanguage",
+          "SpeechSynthesisLanguage",
+          "TargetLanguages",
+          "VoiceName"
+        ],
+        "answer": "SpeechRecognitionLanguage"
+      },
+      {
+        "text": "speechTranslationConfig.[answer choice](\"de\")",
+        "options": [
+          "AddTargetLanguage",
+          "SpeechRecognitionLanguage",
+          "SpeechSynthesisLanguage",
+          "TargetLanguages",
+          "VoiceName"
+        ],
+        "answer": "AddTargetLanguage"
+      }
+    ]
+  },
+  {
+    "id": 168,
+    "type": "drag_and_drop_order",
+    "img": null,
+    "prompt": "You have a collection of Microsoft Word documents and PowerPoint presentations in German. You need to create a solution to translate the files to French. The solution must:\n- Preserve the original formatting of the files.\n- Support the use of a custom glossary.\nYou create a blob container for German files and a blob container for French files. You upload the original files to the container for German files.\nWhich three actions should you perform in sequence to complete the solution?",
+    "choices_pool": [
+      "Perform an asynchronous translation by using the list of files to be translated.",
+      "Perform an asynchronous translation by using the document translation specification.",
+      "Generate a list of files to be translated.",
+      "Upload a glossary file to the container for German files.",
+      "Upload a glossary file to the container for French files.",
+      "Define a document translation specification that has a French target."
+    ],
+    "answer_order": [
+      "Upload a glossary file to the container for German files.",
+      "Define a document translation specification that has a French target.",
+      "Perform an asynchronous translation by using the document translation specification."
+    ]
+  },
+  {
+    "id": 169,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You have the following C# function:\nstatic void MyFunction(TextAnalyticsClient textAnalyticsClient, string text)\n{\n  var response = textAnalyticsClient.ExtractKeyPhrases(text);\n  Console.WriteLine(\"Key phrases:\");\n  foreach (string keyphrase in response.Value)\n    Console.WriteLine($\"{keyphrase}\");\n}\n\nYou call the function using: MyFunction(textAnalyticsClient, \"the quick brown fox jumps over the lazy dog\");\nWhich output will you receive?",
+    "choices": {
+      "A": "The quick\nThe lazy",
+      "B": "the quick brown fox jumps over the lazy dog",
+      "C": "jumps over the",
+      "D": "quick brown fox\nlazy dog"
+    },
+    "answer": "D"
+  },
+  {
+    "id": 170,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You have the following Python method:\ndef create_resource(resource_name, kind, account_tier, location):\n  parameters = CognitiveServicesAccount(sku=Sku(name=account_tier), kind=kind, location=location, properties={})\n  result = cogSvcClient.accounts.create(resource_group_name, resource_name, parameters)\n\nYou need to deploy an Azure resource to the East US Azure region. The resource will be used to perform sentiment analysis.\nHow should you call the method?",
+    "choices": {
+      "A": "create_resource(\"res1\", \"TextAnalytics\", \"Standard\", \"East US\")",
+      "B": "create_resource(\"res1\", \"ContentModerator\", \"S0\", \"eastus\")",
+      "C": "create_resource(\"res1\", \"ContentModerator\", \"Standard\", \"East US\")",
+      "D": "create_resource(\"res1\", \"TextAnalytics\", \"S0\", \"eastus\")"
+    },
+    "answer": "D"
+  },
+  {
+    "id": 171,
+    "type": "hotspot_dropdown",
+    "img": null,
+    "prompt": "You develop a Python app named App1 that performs speech-to-speech translation. You need to configure App1 to translate English to German.\nHow should you complete the SpeechTranslationConfig object?",
+    "items": [
+      {
+        "text": "translation_config.[answer choice] = \"en-US\"",
+        "options": [
+          "add_target_language",
+          "speech_synthesis_language",
+          "speech_recognition_language",
+          "voice_name"
+        ],
+        "answer": "speech_recognition_language"
+      },
+      {
+        "text": "translation_config.[answer choice](\"de\")",
+        "options": [
+          "add_target_language",
+          "speech_synthesis_language",
+          "speech_recognition_language",
+          "voice_name"
+        ],
+        "answer": "add_target_language"
+      }
+    ]
+  },
+  {
+    "id": 172,
+    "type": "hotspot_dropdown",
+    "img": null,
+    "prompt": "You are developing a streaming Speech to Text solution that will use the Speech SDK and MP3 encoding.\nYou need to develop a method to convert speech to text for streaming MP3 data.\nHow should you complete the code?",
+    "items": [
+      {
+        "text": "audio_format = speechsdk.audio.[answer choice](compressed_stream_format=speechsdk.AudioStreamContainerFormat.MP3)",
+        "options": [
+          "AudioConfig.SetProperty",
+          "AudioStreamFormat",
+          "GetWaveFormatPCM",
+          "PullAudioInputStream"
+        ],
+        "answer": "AudioStreamFormat"
+      },
+      {
+        "text": "recognizer = speechsdk.[answer choice](speech_config=speech_config, audio_config=audio_config)",
+        "options": [
+          "KeywordRecognizer",
+          "SpeakerRecognizer",
+          "SpeechRecognizer",
+          "SpeechSynthesizer"
+        ],
+        "answer": "SpeechRecognizer"
+      }
+    ]
+  },
+  {
+    "id": 174,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You are developing an app that will use the Decision and Language APIs.\nYou need to provision resources for the app. The solution must ensure that each service is accessed by using a single endpoint and credential.\nWhich type of resource should you create?",
+    "choices": {
+      "A": "Language",
+      "B": "Speech",
+      "C": "Azure Cognitive Services",
+      "D": "Content Moderator"
+    },
+    "answer": "C"
+  },
+  {
+    "id": 175,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You are building a chatbot. You need to ensure that the bot will recognize the names of your company's products and codenames. The solution must minimize development effort.\nWhich Azure Cognitive Service for Language service should you include in the solution?",
+    "choices": {
+      "A": "custom text classification",
+      "B": "entity linking",
+      "C": "custom Named Entity Recognition (NER)",
+      "D": "key phrase extraction"
+    },
+    "answer": "C"
+  },
+  {
+    "id": 176,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You have an Azure subscription that contains an Azure App Service app named App1. You provision a multi-service Azure Cognitive Services resource named CSAccount1.\nYou need to configure App1 to access CSAccount1. The solution must minimize administrative effort.\nWhat should you use to configure App1?",
+    "choices": {
+      "A": "a system-assigned managed identity and an X.509 certificate",
+      "B": "the endpoint URI and an OAuth token",
+      "C": "the endpoint URI and a shared access signature (SAS) token",
+      "D": "the endpoint URI and subscription key"
+    },
+    "answer": "D"
+  },
+  {
+    "id": 177,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You have an Azure subscription that contains a multi-service Azure Cognitive Services Translator resource named Translator1. You are building an app that will translate text and documents by using Translator1.\nYou need to create the REST API request for the app.\nWhich headers should you include in the request?",
+    "choices": {
+      "A": "the access control request, the content type, and the content length",
+      "B": "the subscription key and the client trace ID",
+      "C": "the resource ID and the content language",
+      "D": "the subscription key, the subscription region, and the content type"
+    },
+    "answer": "D"
+  },
+  {
+    "id": 178,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You have a file share that contains 5,000 images of scanned invoices. You need to analyze the images. The solution must extract the following data:\n- Invoice items\n- Sales amounts\n- Customer details\n\nWhat should you use?",
+    "choices": {
+      "A": "Custom Vision",
+      "B": "Azure AI Computer Vision",
+      "C": "Azure AI Immersive Reader",
+      "D": "Azure AI Document Intelligence"
+    },
+    "answer": "D"
+  },
+  {
+    "id": 179,
+    "type": "hotspot_yes_no",
+    "img": null,
+    "prompt": "You are developing a text processing solution. You have the following function:\ndef get_key_words(textAnalyticsClient, text):\n  response = textAnalyticsClient.recognize_entities(documents=[text])[0]\n  print(\"Key Words:\")\n  for entity in response.entities:\n    print(\"\\t\\t\", entity.text)\n\nYou call the function with the string: \"Our tour of Paris included a visit to the Eiffel Tower\"\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "statements": [
+      {
+        "text": "The output will include the following words: our and included.",
+        "answer": "No"
+      },
+      {
+        "text": "The output will include the following words: Paris, Eiffel, and Tower.",
+        "answer": "Yes"
+      },
+      {
+        "text": "The function will output all the key phrases from the input string to the console.",
+        "answer": "No"
+      }
+    ]
+  },
+  {
+    "id": 180,
+    "type": "hotspot_yes_no",
+    "img": null,
+    "prompt": "You are developing a text processing solution. You develop the following method:\ndef get_key_phrases(text_analytics_client, text):\n  response = text_analytics_client.extract_key_phrases(text, language=\"en\")\n  print('Key phrases:')\n  for keyphrase in response.key_phrases:\n    print(f'\\t{keyphrase}')\n\nYou call the method: get_key_phrases(text_analytics_client, \"the cat sat on the mat\")\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "statements": [
+      {
+        "text": "The call will output key phrases from the input string to the console.",
+        "answer": "Yes"
+      },
+      {
+        "text": "The output will contain the following words: the, cat, sat, on, and mat.",
+        "answer": "No"
+      },
+      {
+        "text": "The output will contain the confidence level for key phrases.",
+        "answer": "No"
+      }
+    ]
+  },
+  {
+    "id": 181,
+    "type": "hotspot_dropdown",
+    "img": null,
+    "prompt": "You are developing a service that records lectures given in English (United Kingdom). You need to develop code that will provide transcripts in French, German, and Spanish.\nHow should you complete the code?",
+    "items": [
+      {
+        "text": "languages = [answer choice]",
+        "options": [
+          "(['en-GB'])",
+          "(['fr', 'de', 'es'])",
+          "(['French', 'Spanish', 'German'])",
+          "(['languages'])"
+        ],
+        "answer": "(['fr', 'de', 'es'])"
+      },
+      {
+        "text": "recognizer = speechsdk.translation.[answer choice](translation_config=translation_config, audio_config=audio_config)",
+        "options": [
+          "IntentRecognizer(",
+          "SpeakerRecognizer(",
+          "SpeechSynthesizer(",
+          "TranslationRecognizer("
+        ],
+        "answer": "TranslationRecognizer("
+      }
+    ]
+  },
+  {
+    "id": 182,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You are developing an app that will use the text-to-speech capability of the Azure AI Speech service. The app will be used in motor vehicles.\nYou need to optimize the quality of the synthesized voice output.\nWhich Speech Synthesis Markup Language (SSML) attribute should you configure?",
+    "choices": {
+      "A": "the style attribute of the mstts:express-as element",
+      "B": "the effect attribute of the voice element",
+      "C": "the pitch attribute of the prosody element",
+      "D": "the level attribute of the emphasis element"
+    },
+    "answer": "B"
+  },
+  {
+    "id": 183,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You are designing a content management system. You need to ensure that the reading experience is optimized for users who have reduced comprehension and learning differences, such as dyslexia. The solution must minimize development effort.\nWhich Azure service should you include in the solution?",
+    "choices": {
+      "A": "Azure AI Immersive Reader",
+      "B": "Azure AI Translator",
+      "C": "Azure AI Document Intelligence",
+      "D": "Azure AI Language"
+    },
+    "answer": "A"
+  },
+  {
+    "id": 184,
+    "type": "hotspot_dropdown",
+    "img": null,
+    "prompt": "You are building an app that will answer customer calls about the status of an order. The app will query a database for the order details and provide the customers with a spoken response.\nYou need to identify which Azure AI service APIs to use. The solution must minimize development effort.\nWhich object should you use for each requirement?",
+    "items": [
+      {
+        "text": "Convert customer calls into text queries: [answer choice]",
+        "options": [
+          "SpeechRecognizer",
+          "SpeechSynthesizer",
+          "TranslationRecognizer",
+          "VoiceProfileClient"
+        ],
+        "answer": "SpeechRecognizer"
+      },
+      {
+        "text": "Provide customers with the order details: [answer choice]",
+        "options": [
+          "SpeechRecognizer",
+          "SpeechSynthesizer",
+          "TranslationRecognizer",
+          "VoiceProfileClient"
+        ],
+        "answer": "SpeechSynthesizer"
+      }
+    ]
+  },
+  {
+    "id": 185,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You have an Azure AI service model named Model1 that identifies the intent of text input. You develop a Python app named App1.\nYou need to configure App1 to use Model1.\nWhich package should you add to App1?",
+    "choices": {
+      "A": "azure-cognitiveservices-language-textanalytics",
+      "B": "azure-ai-language-conversations",
+      "C": "azure-mgmt-cognitiveservices",
+      "D": "azure-cognitiveservices-speech"
+    },
+    "answer": "B"
+  },
+  {
+    "id": 186,
+    "type": "hotspot_dropdown",
+    "img": null,
+    "prompt": "You are building an app that will automatically translate speech from English to French, German, and Spanish by using Azure AI service.\nYou need to define the output languages and configure the Azure AI Speech service.\nHow should you complete the code?",
+    "items": [
+      {
+        "text": "languages = [answer choice]",
+        "options": [
+          "['en-GB']",
+          "{'en','fr','de','es'}",
+          "['fr', 'de', 'es']",
+          "{\"French\",\"Spanish\",\"German\"}"
+        ],
+        "answer": "['fr', 'de', 'es']"
+      },
+      {
+        "text": "recognizer = speechsdk.translation.[answer choice](translation_config=translation_config)",
+        "options": [
+          "IntentRecognizer",
+          "SpeakerRecognizer",
+          "SpeechSynthesizer",
+          "TranslationRecognizer"
+        ],
+        "answer": "TranslationRecognizer"
+      }
+    ]
+  },
+  {
+    "id": 187,
+    "type": "drag_and_drop_order",
+    "img": null,
+    "prompt": "You plan to implement an Azure AI Search resource that will use a custom skill based on sentiment analysis. You need to create a custom model and configure Azure AI Search to use the model.\nWhich actions should you perform in sequence?",
+    "choices_pool": [
+      "Create an endpoint for the model.",
+      "Rerun the indexer to enrich the index.",
+      "Create an Azure Machine Learning workspace.",
+      "Create and train the model in the Azure Machine Learning studio.",
+      "Provision an Azure AI Services resource and obtain the endpoint.",
+      "Connect the custom skill to the endpoint."
+    ],
+    "answer_order": [
+      "Create an Azure Machine Learning workspace.",
+      "Create and train the model in the Azure Machine Learning studio.",
+      "Create an endpoint for the model.",
+      "Connect the custom skill to the endpoint.",
+      "Rerun the indexer to enrich the index."
+    ]
+  },
+  {
+    "id": 188,
+    "type": "hotspot_dropdown",
+    "img": null,
+    "prompt": "You have a collection of press releases stored as PDF files. You need to extract text from the files and perform sentiment analysis.\nWhich service should you use for each task?",
+    "items": [
+      {
+        "text": "Extract text: [answer choice]",
+        "options": [
+          "Azure AI Search",
+          "Azure AI Vision",
+          "Azure AI Document Intelligence"
+        ],
+        "answer": "Azure AI Document Intelligence"
+      },
+      {
+        "text": "Perform sentiment analysis: [answer choice]",
+        "options": [
+          "Azure Cognitive Search",
+          "Azure AI Computer Vision",
+          "Azure AI Document Intelligence",
+          "Azure AI Language"
+        ],
+        "answer": "Azure AI Language"
+      }
+    ]
+  },
+  {
+    "id": 189,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You are building an internet-based training solution. The solution requires that a user's camera and microphone remain enabled.\nYou need to monitor a video stream of the user and verify that the user is alone and is not collaborating with another user. The solution must minimize development effort.\nWhat should you include in the solution?",
+    "choices": {
+      "A": "speech-to-text in the Azure AI Speech service",
+      "B": "object detection in Azure AI Custom Vision",
+      "C": "Spatial Analysis in Azure AI Vision",
+      "D": "object detection in Azure AI Custom Vision"
+    },
+    "answer": "C"
+  },
+  {
+    "id": 190,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You are developing an app that will use the Speech and Language APIs. You need to provision resources for the app. The solution must ensure that each service is accessed by using a single endpoint and credential.\nWhich type of resource should you create?",
+    "choices": {
+      "A": "Azure AI Language",
+      "B": "Azure AI Speech",
+      "C": "Azure AI Services",
+      "D": "Azure AI Content Safety"
+    },
+    "answer": "C"
+  },
+  {
+    "id": 191,
+    "type": "hotspot_dropdown",
+    "img": null,
+    "prompt": "You are building an app that will automatically translate speech from English to French, German, and Spanish by using Azure AI service.\nYou need to define the output languages and configure the Azure AI Speech service.\nHow should you complete the code?",
+    "items": [
+      {
+        "text": "var languages = new List<string> [answer choice];",
+        "options": [
+          "{\"en-GB\"}",
+          "[\"en\",\"fr\",\"de\",\"es\"]",
+          "{\"fr\",\"de\",\"es\"}",
+          "[\"French\", \"German\",\"Spanish\"]"
+        ],
+        "answer": "{\"fr\",\"de\",\"es\"}"
+      },
+      {
+        "text": "using var recognizer = new [answer choice];",
+        "options": [
+          "IntentRecognizer",
+          "SpeakerRecognizer",
+          "SpeechSynthesizer",
+          "TranslationRecognizer"
+        ],
+        "answer": "TranslationRecognizer"
+      }
+    ]
+  },
+  {
+    "id": 192,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You are developing a text processing solution. You have the following function:\nstatic void GetKeyWords(TextAnalyticsClient textAnalyticsClient, string text)\n{\n  var response = textAnalyticsClient.RecognizeEntities(text);\n  Console.WriteLine(\"Key words:\");\n  foreach (CategorizedEntity entity in response.Value)\n    Console.WriteLine($\"\\t{entity.Text}\");\n}\n\nYou call the function with the string: \"Our tour of London included a visit to Buckingham Palace\"\nWhat will the function return?",
+    "choices": {
+      "A": "London and Buckingham Palace only",
+      "B": "Tour and visit only",
+      "C": "London and Tour only",
+      "D": "Our tour of London included visit to Buckingham Palace"
+    },
+    "answer": "A"
+  },
+  {
+    "id": 193,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You have the following Python function:\ndef my_function(textAnalyticsClient, text):\n  response = textAnalyticsClient.extract_key_phrases(documents=[text])[0]\n  print(\"Key Phrases:\")\n  for phrase in response.key_phrases:\n    print(phrase)\n\nYou call the function: my_function(text_analytics_client, \"the quick brown fox jumps over the lazy dog\")\nFollowing 'Key phrases', what output will you receive?",
+    "choices": {
+      "A": "The quick\nThe lazy",
+      "B": "jumps over the",
+      "C": "quick brown fox\nlazy dog",
+      "D": "the quick brown fox jumps over the lazy dog"
+    },
+    "answer": "C"
+  },
+  {
+    "id": 194,
+    "type": "multiple_choice",
+    "img": null,
+    "question": "You have an Azure subscription. You need to deploy an Azure AI Search resource that will recognize geographic locations.\nWhich built-in skill should you include in the skillset for the resource?",
+    "choices": {
+      "A": "AzureOpenAIEmbeddingSkill",
+      "B": "DocumentExtractionSkill",
+      "C": "EntityRecognitionSkill",
+      "D": "EntityLinkingSkill"
+    },
+    "answer": "C"
   }
 ]
 

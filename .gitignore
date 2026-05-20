@@ -35,3 +35,6 @@ node_modules/.vite/
 
 data/AWS ML/*
 
+# server (deploy frontend only)
+server/
+

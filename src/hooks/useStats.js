@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { createUserStats } from '../data/stats';
 
 function statsKey(userId) {
-  return `ai900Stats_${userId}`;
+  return userId ? `ai900Stats_${userId}` : 'ai900Stats_guest';
 }
 
 function safeParse(v) {
@@ -13,24 +13,25 @@ function safeParse(v) {
 export default function useStats() {
   const { user } = useAuth();
 
+  const userId = user?.id ?? 'guest';
+  const username = user?.username ?? 'Guest';
+
   const [stats, setStats] = useState(() => {
-    if (!user) return null;
-    return safeParse(localStorage.getItem(statsKey(user.id))) || createUserStats(user.id, user.username);
+    return safeParse(localStorage.getItem(statsKey(userId))) || createUserStats(userId, username);
   });
 
   // Reload when user changes (login / logout)
   useEffect(() => {
-    if (!user) { setStats(null); return; }
-    const stored = safeParse(localStorage.getItem(statsKey(user.id)));
-    setStats(stored || createUserStats(user.id, user.username));
-  }, [user?.id]);
+    const stored = safeParse(localStorage.getItem(statsKey(userId)));
+    setStats(stored || createUserStats(userId, username));
+  }, [userId]);
 
   // Persist on every change
   useEffect(() => {
-    if (stats && user) {
-      localStorage.setItem(statsKey(user.id), JSON.stringify(stats));
+    if (stats) {
+      localStorage.setItem(statsKey(userId), JSON.stringify(stats));
     }
-  }, [stats, user?.id]);
+  }, [stats, userId]);
 
   // Record a completed exam
   const recordExam = useCallback(({ score, total, wrongIds }) => {
@@ -62,9 +63,8 @@ export default function useStats() {
   }, []);
 
   const clearStats = useCallback(() => {
-    if (!user) return;
-    setStats(createUserStats(user.id, user.username));
-  }, [user?.id]);
+    setStats(createUserStats(userId, username));
+  }, [userId]);
 
   // Top N most frequently wrong questions
   const topWrongQuestions = stats
